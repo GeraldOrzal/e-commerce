@@ -1,11 +1,13 @@
 import React from 'react';
+import Input from '../Components/Input';
+
 import { Link, Head } from '@inertiajs/inertia-react';
 
 export default function Welcome(props) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+            <div className="relative bg-primary flex space-y-2 flex-col items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
                 <div className="fixed top-0 right-0 px-6 py-4 sm:block">
                     {props.auth.user ? (
                         <Link href={route('dashboard')} className="text-sm text-gray-700 underline">
@@ -23,233 +25,49 @@ export default function Welcome(props) {
                         </>
                     )}
                 </div>
-
-                <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                    <div className="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                        <svg
-                            viewBox="0 0 651 192"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-16 w-auto text-gray-700 sm:h-20"
-                        >
-                            <g clipPath="url(#clip0)" fill="#EF3B2D">
-                                <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z" />
-                            </g>
-                        </svg>
+                <div className='container bg-secondary p-5 rounded-sm flex space-x-4'>
+                    <img src="" alt='LOGO' className='basis-1/10'/>
+                    <input className='flex-auto  basis-1/2'/>
+                    <Link href="" className=" ml-4 text-sm text-gray-700 underline">
+                        Cart
+                    </Link>
+                </div>
+                <div className='container bg-secondary  p-20 h-20 text-center'>
+                    Carousel
+                </div>
+                <div className='container flex flex-row bg-secondary p-5  text-center'>
+                    <img src="data:image/jpeg;base64,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" alt="big image" className='basis-1/2 '/> 
+                    <div className='basis-1/2 bg-primary p-20 rounded-sm'>
+                        Directory Listing
                     </div>
-
-                    <div className="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                        <div className="grid grid-cols-1 md:grid-cols-2">
-                            <div className="p-6">
-                                <div className="flex items-center">
-                                    <svg
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        viewBox="0 0 24 24"
-                                        className="w-8 h-8 text-gray-500"
-                                    >
-                                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-
-                                    <div className="ml-4 text-lg leading-7 font-semibold">
-                                        <a
-                                            href="https://laravel.com/docs"
-                                            className="underline text-gray-900 dark:text-white"
-                                        >
-                                            Documentation
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className="ml-12">
-                                    <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laravel has wonderful, thorough documentation covering every aspect of the
-                                        framework. Whether you are new to the framework or have previous experience with
-                                        Laravel, we recommend reading all of the documentation from beginning to end.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                                <div className="flex items-center">
-                                    <svg
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        viewBox="0 0 24 24"
-                                        className="w-8 h-8 text-gray-500"
-                                    >
-                                        <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
-                                        <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-
-                                    <div className="ml-4 text-lg leading-7 font-semibold">
-                                        <a
-                                            href="https://laracasts.com"
-                                            className="underline text-gray-900 dark:text-white"
-                                        >
-                                            Laracasts
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className="ml-12">
-                                    <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript
-                                        development. Check them out, see for yourself, and massively level up your
-                                        development skills in the process.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="p-6 border-t border-gray-200 dark:border-gray-700">
-                                <div className="flex items-center">
-                                    <svg
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        viewBox="0 0 24 24"
-                                        className="w-8 h-8 text-gray-500"
-                                    >
-                                        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
-                                    </svg>
-
-                                    <div className="ml-4 text-lg leading-7 font-semibold">
-                                        <a
-                                            href="https://laravel-news.com/"
-                                            className="underline text-gray-900 dark:text-white"
-                                        >
-                                            Laravel News
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className="ml-12">
-                                    <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laravel News is a community driven portal and newsletter aggregating all of the
-                                        latest and most important news in the Laravel ecosystem, including new package
-                                        releases and tutorials.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                                <div className="flex items-center">
-                                    <svg
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        viewBox="0 0 24 24"
-                                        className="w-8 h-8 text-gray-500"
-                                    >
-                                        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-
-                                    <div className="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
-                                        Vibrant Ecosystem
-                                    </div>
-                                </div>
-
-                                <div className="ml-12">
-                                    <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laravel's robust library of first-party tools and libraries, such as{' '}
-                                        <a href="https://forge.laravel.com" className="underline">
-                                            Forge
-                                        </a>
-                                        ,{' '}
-                                        <a href="https://vapor.laravel.com" className="underline">
-                                            Vapor
-                                        </a>
-                                        ,{' '}
-                                        <a href="https://nova.laravel.com" className="underline">
-                                            Nova
-                                        </a>
-                                        , and{' '}
-                                        <a href="https://envoyer.io" className="underline">
-                                            Envoyer
-                                        </a>{' '}
-                                        help you take your projects to the next level. Pair them with powerful open
-                                        source libraries like{' '}
-                                        <a href="https://laravel.com/docs/billing" className="underline">
-                                            Cashier
-                                        </a>
-                                        ,{' '}
-                                        <a href="https://laravel.com/docs/dusk" className="underline">
-                                            Dusk
-                                        </a>
-                                        ,{' '}
-                                        <a href="https://laravel.com/docs/broadcasting" className="underline">
-                                            Echo
-                                        </a>
-                                        ,{' '}
-                                        <a href="https://laravel.com/docs/horizon" className="underline">
-                                            Horizon
-                                        </a>
-                                        ,{' '}
-                                        <a href="https://laravel.com/docs/sanctum" className="underline">
-                                            Sanctum
-                                        </a>
-                                        ,{' '}
-                                        <a href="https://laravel.com/docs/telescope" className="underline">
-                                            Telescope
-                                        </a>
-                                        , and more.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div className='container bg-secondary text-center bg-secondary p-5'>
+                    <h1 className='font-bold'>Featured Products</h1>
+                    
+                    <div className='flex space-x-5 bg-primary p-5'>
+                        <img src="data:image/jpeg;base64,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" alt='img1' className='bg-secondary p-20 basis-1/3 w-64'/>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbuHtsb2zTAoZqFCOhI181EjIZ4esFvUKeQ&usqp=CAU" alt='img2'className='bg-secondary p-20 basis-1/3'/>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNxCOhI2qNLN1R20wF9fVn6IskJ1JfgyDU9Q&usqp=CAU" alt='img3' className='bg-secondary p-20 basis-1/3'/>
                     </div>
-
-                    <div className="flex justify-center mt-4 sm:items-center sm:justify-between">
-                        <div className="text-center text-sm text-gray-500 sm:text-left">
-                            <div className="flex items-center">
-                                <svg
-                                    fill="none"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="-mt-px w-5 h-5 text-gray-400"
-                                >
-                                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-
-                                <a href="https://laravel.bigcartel.com" className="ml-1 underline">
-                                    Shop
-                                </a>
-
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    className="ml-4 -mt-px w-5 h-5 text-gray-400"
-                                >
-                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-
-                                <a href="https://github.com/sponsors/taylorotwell" className="ml-1 underline">
-                                    Sponsor
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                            Laravel v{props.laravelVersion} (PHP v{props.phpVersion})
-                        </div>
+                    <div className='flex justify-center space-x-5 bg-primary p-5'>
+                        <span className='bg-secondary p-2 rounded-lg'></span>
+                        <span className='bg-secondary p-2 rounded-lg'></span>
+                        <span className='bg-secondary p-2 rounded-lg'></span>
+                        <span className='bg-secondary p-2 rounded-lg'></span>
                     </div>
+                </div>
+                <div className='container bg-secondary text-center bg-secondary p-5'>
+                    <h1 className='font-bold'>More Details or Faqs</h1>
+                    <p>
+                    Velit qui dolore cillum aliqua laboris labore consectetur esse. Pariatur esse labore id ipsum tempor dolor reprehenderit exercitation fugiat. Enim nostrud aliqua commodo occaecat Lorem veniam laborum culpa Lorem. Non sit deserunt quis non non aliquip dolor est cillum. Nulla sunt ea culpa dolore laboris reprehenderit.
+                    In nulla sunt adipisicing sit voluptate excepteur deserunt mollit consectetur irure proident. Sint dolor anim Lorem laboris. Et nostrud irure fugiat deserunt ea.
+                    Mollit exercitation consequat aliquip anim ex nisi. Fugiat magna proident aliqua ut ad reprehenderit consectetur occaecat aliquip ipsum enim. Ut amet Lorem id qui dolore dolore incididunt. Commodo ut do consectetur amet est incididunt commodo id proident. Mollit consequat nulla labore cillum Lorem et occaecat veniam cillum ad elit non. Dolore aliqua deserunt sint eu eu adipisicing veniam exercitation ex. Irure id laborum non officia laborum est dolor ea ex officia in est commodo mollit.
+                    Anim culpa sunt eiusmod enim culpa non. Fugiat commodo cillum tempor laborum qui velit nostrud aute dolor labore. Amet laboris aliqua ullamco irure anim voluptate. Ex eiusmod anim sint amet cillum ut. Ea anim pariatur veniam minim commodo quis elit eiusmod cillum minim. Dolore cupidatat velit irure voluptate commodo labore sit reprehenderit ullamco. Tempor tempor excepteur ea labore elit eu consectetur sint.
+                    </p>
+                    
+                </div>
+                <div className='container bg-secondary text-center bg-secondary p-5'>
+                    Footer
                 </div>
             </div>
         </>
