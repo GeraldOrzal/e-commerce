@@ -4,6 +4,7 @@ import Input from '../Components/Input';
 import { Link, Head } from '@inertiajs/inertia-react';
 
 export default function Welcome(props) {
+    console.log(props.canLogin,props.canRegister);
     return (
         <>
             <Head title="Welcome" />
