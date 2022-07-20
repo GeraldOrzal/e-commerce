@@ -24,8 +24,21 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
+
+Route::get('/shop', function () {
+    return Inertia::render('User/Customer/Shop');
+})->name('shop');
+
+Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboardadmin');
+
+Route::get('/seller/dashboard', function () {
+    return Inertia::render('User/Seller/Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboardseller');
+
+Route::get('/superadmin/dashboard', function () {
+    return Inertia::render('SuperAdmin/Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboardsuperadmin');
 
 require __DIR__.'/auth.php';
