@@ -16,11 +16,16 @@ module.exports = {
             },
         },
         colors: {
-            primary: '#5c6ac4',
-            secondary: '#ecc94b',
-            
+            primary: 'white',
+            secondary: 'rgb(163 163 163)',
+            thirdary: '#F0F0F0',
+            fourthdary: 'rgb(115 115 115)',
+
         }
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ],
 };
