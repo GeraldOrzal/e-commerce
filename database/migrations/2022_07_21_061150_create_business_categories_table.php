@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('business_categories', function (Blueprint $table) {
-            $table->id('businesscategoryid');
-            $table->description();
+            $table->smallInteger('businesscategoryid',true,true);
+            $table->string('description');
         });
     }
 
