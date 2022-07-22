@@ -4,7 +4,7 @@ import {GoSearch} from 'react-icons/go';
 import { Link, Head } from '@inertiajs/inertia-react';
 
 export default function Welcome(props) {
-    console.log(props.canLogin,props.canRegister);
+    console.log(props.categories);
     return (
         <>
             <Head title="Welcome" />

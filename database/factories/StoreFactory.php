@@ -17,8 +17,12 @@ class StoreFactory extends Factory
     public function definition()
     {
         return [
-            'storename' => fake()->title(),
-            
+             'storename' => fake()->text(10),
+            'storeavatarname'=>fake()->image('public/storage/images',640,480,null,false),
+            'businesscategoryid'=>rand(1,3),
+            'description'=> fake()->paragraph(3),
+            'userid'=>rand(1,50),
+
         ];
     }
 }
