@@ -20,7 +20,8 @@ module.exports = {
             secondary: 'rgb(163 163 163)',
             thirdary: '#F0F0F0',
             fourthdary: 'rgb(115 115 115)',
-
+            fifthdary: 'rgb(0 0 128)',
+            sixthdary: 'rgb(241 245 249)',
         }
     },
 
