@@ -6,8 +6,10 @@ import Input from '@/Components/Input';
 import Label from '@/Components/Label';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import { BsFacebook, BsGoogle,BsTwitter } from 'react-icons/bs';
 
 export default function Login({ status, canResetPassword }) {
+    
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -33,12 +35,15 @@ export default function Login({ status, canResetPassword }) {
     return (
         <Guest>
             <Head title="Log in" />
-
+            
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-                
+            
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
+            <h1 className='mr-5 text-4xl'>
+                Sign in to continue
+            </h1>    
                 <div>
                     <Label forInput="email" value="Email" />
 
@@ -65,7 +70,14 @@ export default function Login({ status, canResetPassword }) {
                         handleChange={onHandleChange}
                     />
                 </div>
-
+                {canResetPassword && (
+                        <Link
+                            href={route('password.request')}
+                            className="underline text-sm text-gray-600 hover:text-gray-900"
+                        >
+                            Forgot your password?
+                        </Link>
+                    )}
                 <div className="block mt-4">
                     <label className="flex items-center">
                         <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
@@ -75,20 +87,48 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
+                    
+                    
                     <Button className="ml-4" processing={processing}>
                         Log in
                     </Button>
                 </div>
+                <div
+                className='flex flex-row items-center'
+                >
+
+                <div className='border-solid border-b-2 w-full h-0'></div>
+                <label className='mx-5'>or</label>
+                <div className='border-solid border-b-2 w-full h-0'></div>
+                </div>
+                <div className="flex flex-col items-center mt-4">
+                    <h3>Login using</h3>
+                    <div className='flex flex-row space-x-5 mb-5 p-5'>
+                        
+                            <BsTwitter
+                           size={30}
+                            color="#00acee"
+                            />
+                        
+                        <BsFacebook
+                        size={30}
+                        />
+                        <BsGoogle
+                        size={30}
+                        />
+                    </div>
+                    
+                </div>
+                Dont have an account?
+                <Link
+                            href={route('register')}
+                            className="underline text-sm text-gray-600 hover:text-gray-900"
+                        >
+                           Register
+                </Link>
             </form>
+            
         </Guest>
+        
     );
 }
