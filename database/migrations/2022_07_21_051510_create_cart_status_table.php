@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cart_status', function (Blueprint $table) {
-            $table->id('cartstatusid');
+            $table->unsignedSmallInteger('cartstatusid',true);
             $table->string('description');
         });
     }

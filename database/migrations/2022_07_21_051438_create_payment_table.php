@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('payment', function (Blueprint $table) {
-            $table->id('paymentid');
+            $table->unsignedSmallInteger('paymentid',true);
             $table->string('description');
         });
     }

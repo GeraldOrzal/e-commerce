@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\Customer\ShopController;
 use Inertia\Inertia;
 
 /*
@@ -15,19 +16,10 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [ShopController::class,'create'])->name("index");
 
 
-Route::get('/shop', function () {
-    return Inertia::render('User/Customer/Shop');
-})->name('shop');
+Route::get('/shop', [ShopController::class,'create'])->name('shop');
 
 Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Dashboard');

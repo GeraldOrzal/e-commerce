@@ -15,8 +15,8 @@ return new class extends Migration
     {
         //
         Schema::table('users', function($table) {
-            $table->unsignedInteger('roleid');
-            $table->unsignedInteger('usertypeid');
+            $table->unsignedSmallInteger('roleid');
+            $table->unsignedSmallInteger('usertypeid');
             $table->foreign('roleid')->references('roleid')->on('user_roles');
             $table->foreign('usertypeid')->references('usertypeid')->on('user_types');
         });

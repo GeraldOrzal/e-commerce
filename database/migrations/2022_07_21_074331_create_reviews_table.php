@@ -13,18 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cart', function (Blueprint $table) {
-            $table->id('cartid');
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id('reviewid');
             $table->unsignedBigInteger('productid');
-            $table->timestamps();
+            $table->unsignedInteger('rating');
+            $table->json('imagesname');
             $table->unsignedBigInteger('userid');
-            $table->unsignedSmallInteger('cartstatusid');
-            $table->unsignedSmallInteger('paymentid');
-            $table->boolean('iswishlist');
+            $table->timestamps();
             $table->foreign('productid')->references('productid')->on('products');
             $table->foreign('userid')->references('id')->on('users');
-            $table->foreign('paymentid')->references('paymentid')->on('payment');
-            $table->foreign('cartstatusid')->references('cartstatusid')->on('cart_status');
         });
     }
 
@@ -35,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cart');
+        Schema::dropIfExists('reviews');
     }
 };

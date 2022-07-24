@@ -4,8 +4,10 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
+import Footer from '@/Components/Footer';
 
 export default function Authenticated({ auth, header, children }) {
+    console.log(auth);
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
@@ -21,9 +23,15 @@ export default function Authenticated({ auth, header, children }) {
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
+                                <NavLink href={route('shop')} active={route().current('shop')}>
+                                    Shop
                                 </NavLink> 
+                                {/* <NavLink href={route('')} active={route().current('categories')}>
+                                    Categories
+                                </NavLink> 
+                                <NavLink href={route('')} active={route().current('categories')}>
+                                    Account
+                                </NavLink>  */}
                             </div>
                         </div>
 
@@ -91,8 +99,8 @@ export default function Authenticated({ auth, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
+                        <ResponsiveNavLink href={route('shop')} active={route().current('shop')}>
+                            Home
                         </ResponsiveNavLink>
                     </div>
 
@@ -118,6 +126,7 @@ export default function Authenticated({ auth, header, children }) {
             )}
 
             <main>{children}</main>
+            <Footer/>
         </div>
     );
 }
