@@ -41,7 +41,7 @@ export default function Login({ status, canResetPassword }) {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
-            <h1 className='mr-5 text-4xl'>
+            <h1 className='mr-5 text-4xl text-center text-fourthdary'>
                 Sign in to continue
             </h1>    
                 <div>
@@ -86,11 +86,11 @@ export default function Login({ status, canResetPassword }) {
                     </label>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="flex items-center mt-4">
                     
                     
-                    <Button className="ml-4" processing={processing}>
-                        Log in
+                    <Button className="w-full " processing={processing}>
+                        <label className='text-center w-full'>Log in</label>
                     </Button>
                 </div>
                 <div
@@ -119,13 +119,15 @@ export default function Login({ status, canResetPassword }) {
                     </div>
                     
                 </div>
-                Dont have an account?
-                <Link
-                            href={route('register')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                           Register
-                </Link>
+                <div className='flex items-center justify-center'>
+                    Dont have an account?
+                    <Link
+                                href={route('register')}
+                                className="underline text-sm text-gray-600 hover:text-gray-900 font-bold"
+                            >
+                            Register
+                    </Link>
+                </div>
             </form>
             
         </Guest>

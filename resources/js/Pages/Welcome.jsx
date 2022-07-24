@@ -16,12 +16,24 @@ export default function Welcome(props) {
                 <input type='text' className='bg-thirdary pl-5 outline-0 rounded-bl-xl p-2 w-3/5' placeholder='Search shop / product name'/>
                 <button type='submit' className='bg-thirdary rounded-tr-xl pr-5 px-2 py-2.5 text-xl text-fourthdary'><GoSearch/></button>
                 <nav>
-                <Link href={route('login')} className=" ml-10 underline text-fourthdary">
-                    Log in
-                </Link>
-                <Link href={route('register')} className="ml-4 underline text-fourthdary">
-                    Register
-                </Link>
+                {
+                    props.auth.user? 
+                    <Link href={route('shop')} className=" ml-10 underline text-fourthdary">
+                    Shop
+                </Link>:
+                <>
+                <Link href={route('login')} className="ml-4 underline text-fourthdary">
+                        Login
+                    </Link>
+                    <Link href={route('register')} className="ml-4 underline text-fourthdary">
+                        Register
+                    </Link>
+                
+                </>
+
+
+                }
+                
                 </nav>
             </header>
             <main>

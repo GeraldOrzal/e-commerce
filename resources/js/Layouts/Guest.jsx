@@ -3,6 +3,8 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 import Button from '@/Components/Button';
 import { Link } from '@inertiajs/inertia-react';
 
+import Footer from '@/Components/Footer';
+
 export default function Guest({ children }) {
 
     return (
@@ -19,7 +21,7 @@ export default function Guest({ children }) {
                                     <Link href="/">
                                         <ApplicationLogo />
                                     </Link>
-                                    <h1 className='mr-5 text-4xl'>
+                                    <h1 className='ml-10 text-4xl'>
                                         {route().current()[0].toUpperCase() + route().current().substr(1, route().current().length)}
                                     </h1>
                                 </div>
@@ -37,7 +39,7 @@ export default function Guest({ children }) {
                                     <Link href="/">
                                         <ApplicationLogo />
                                     </Link>
-                                    <h1 className='mr-5 text-4xl'>
+                                    <h1 className='ml-10 text-4xl'>
                                         {route().current()[0].toUpperCase() + route().current().substr(1, route().current().length)}
                                     </h1>
                                 </div>
@@ -56,11 +58,12 @@ export default function Guest({ children }) {
             <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-primary shadow-md overflow-hidden sm:rounded-lg">
                 {children}
             </div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row text-primary p-5 space-x-1'>
                 <Link> Privacy Policy</Link>
-                |
+                <label>|</label>
                 <Link>Terms and Condition</Link>
             </div>
+            <Footer/>
         </div>
     );
 }
