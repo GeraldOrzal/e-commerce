@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('storeid');
             $table->string('storename');
             $table->string('storeavatarname');
-            $table->unsignedInteger('businesscategoryid');
-            $table->unsignedInteger('description');
+            $table->unsignedSmallInteger('businesscategoryid');
+            $table->string('description');
             $table->foreign('businesscategoryid')->references('businesscategoryid')->on('business_categories');
             
         });

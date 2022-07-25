@@ -2,25 +2,38 @@ import React from 'react';
 import Input from '../Components/Input';
 import {GoSearch} from 'react-icons/go';
 import { Link, Head } from '@inertiajs/inertia-react';
-import logo from '../images/logo.png';
+
 import sampleprod from '../images/bag.webp';
+import ApplicationLogo from '@/Components/ApplicationLogo';
 
 export default function Welcome(props) {
-    console.log(props.canLogin,props.canRegister);
+    console.log(props.categories);
     return (
         <>
         <div className='container p-10 pt-5 mx-auto '>
             <header className='container p-5 mx-auto mb-2 flex flex-row justify-center items-center'>
-                <img src={logo} alt='LOGO' className='h-20 w-20 mr-20'/>
+                <ApplicationLogo className={" mr-20"}/>
                 <input type='text' className='bg-thirdary pl-5 outline-0 rounded-bl-xl p-2 w-3/5' placeholder='Search shop / product name'/>
                 <button type='submit' className='bg-thirdary rounded-tr-xl pr-5 px-2 py-2.5 text-xl text-fourthdary'><GoSearch/></button>
                 <nav>
-                <Link href={route('login')} className=" ml-10 underline text-fourthdary">
-                    Log in
-                </Link>
-                <Link href={route('register')} className="ml-4 underline text-fourthdary">
-                    Register
-                </Link>
+                {
+                    props.auth.user? 
+                    <Link href={route('shop')} className=" ml-10 underline text-fourthdary">
+                    Shop
+                </Link>:
+                <>
+                <Link href={route('login')} className="ml-4 underline text-fourthdary">
+                        Login
+                    </Link>
+                    <Link href={route('register')} className="ml-4 underline text-fourthdary">
+                        Register
+                    </Link>
+                
+                </>
+
+
+                }
+                
                 </nav>
             </header>
             <main>

@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_roles', function (Blueprint $table) {
-            $table->unsignedSmallInteger('roleid',true);
-            $table->string('description');
+        Schema::table('products', function (Blueprint $table) {
+            
+            $table->json('productdetails',255);
+            
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_roles');
+        //
     }
 };

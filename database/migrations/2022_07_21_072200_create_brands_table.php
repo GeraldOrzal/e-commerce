@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_roles', function (Blueprint $table) {
-            $table->unsignedSmallInteger('roleid',true);
+        Schema::create('brands', function (Blueprint $table) {
+            $table->unsignedSmallInteger('brandid',true);
             $table->string('description');
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_roles');
+        Schema::dropIfExists('brands');
     }
 };
