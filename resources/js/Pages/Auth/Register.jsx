@@ -5,6 +5,8 @@ import Input from '@/Components/Input';
 import Label from '@/Components/Label';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import { BsFacebook, BsTwitter, BsPerson, BsLock, BsEnvelope } from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc'
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -37,70 +39,92 @@ export default function Register() {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
-                <div>
-                    <Label forInput="name" value="Name" />
-
+            <h1 className='text-4xl text-center text-neutral1 font-bold mb-2'>
+                Welcome!
+            </h1>
+            <h2 className='text-center'>Let's make your account.</h2>    
+                <div className="mt-4 flex flex-row items-center">
+                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="text"
                         name="name"
                         value={data.name}
-                        className="mt-1 block w-full"
+                        className="mt-1 w-full rounded-tr-xl"
                         autoComplete="name"
                         isFocused={true}
                         handleChange={onHandleChange}
                         required
+                        placeholder='Enter Name'
                     />
                 </div>
-
-                <div className="mt-4">
-                    <Label forInput="email" value="Email" />
-
+                <div className="mt-4 flex flex-row items-center">
+                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsEnvelope className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className="mt-1 w-full rounded-tr-xl"
                         autoComplete="username"
                         handleChange={onHandleChange}
                         required
+                        placeholder='Enter Email'
                     />
                 </div>
-
-                <div className="mt-4">
-                    <Label forInput="password" value="Password" />
-
+                <div className="mt-4 flex flex-row items-center">
+                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="mt-1 w-full rounded-tr-xl"
                         autoComplete="new-password"
                         handleChange={onHandleChange}
                         required
+                        placeholder='Enter Password'
                     />
                 </div>
-
-                <div className="mt-4">
-                    <Label forInput="password_confirmation" value="Confirm Password" />
-
+                <div className="mt-4 flex flex-row items-center">
+                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="password"
                         name="password_confirmation"
                         value={data.password_confirmation}
-                        className="mt-1 block w-full"
+                        className="mt-1 w-full rounded-tr-xl"
                         handleChange={onHandleChange}
                         required
+                        placeholder='Confirm Password'
                     />
                 </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
+                <div className="flex items-center justify-between mt-4">
+                    <Link href={route('login')} className="underline text-sm text-danger">
                         Already registered?
                     </Link>
-
                     <Button className="ml-4" processing={processing}>
                         Register
                     </Button>
+                </div>
+                <div
+                className='flex flex-row items-center mt-2'
+                >
+                <div className='border-solid border-b w-full h-0'></div>
+                <label className='mx-5'>or</label>
+                <div className='border-solid border-b w-full h-0'></div>
+                </div>
+                <div className="flex flex-col items-center mt-4">
+                    <h3>Login using</h3>
+                    <div className='flex flex-row space-x-5 mb-5 p-5'>
+                        <BsTwitter
+                        size={25}
+                        color="#00acee"
+                        />
+                        <BsFacebook
+                        size={25}
+                        color="#0000ff"
+                        />
+                        <FcGoogle
+                        size={25}
+                        />
+                    </div>
                 </div>
             </form>
         </Guest>
