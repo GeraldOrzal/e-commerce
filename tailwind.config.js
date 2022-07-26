@@ -44,7 +44,6 @@ module.exports = {
             neutral4: '#f0f0f0',
         }
     },
-
     plugins: [
         require('tailwindcss'),
         require('autoprefixer'),
