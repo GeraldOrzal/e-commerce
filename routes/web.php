@@ -16,10 +16,44 @@ use Inertia\Inertia;
 |
 */
 
+
+
 Route::get('/', [ShopController::class,'create'])->name("index");
 
+Route::get('/viewproduct', fn()=>Inertia::render('User/Customer/ViewProduct'))->name('viewproduct');
 
-Route::get('/shop', [ShopController::class,'create'])->name('shop');
+Route::group([
+    'prefix'=>'user'
+],
+function(){
+    
+    Route::get('/shop', [ShopController::class,'create'])->name('shop');
+
+    Route::get('/cart', fn()=>Inertia::render('User/Customer/Cart'))->name('cart');
+
+    Route::get('/checkout', fn()=>Inertia::render('User/Customer/Checkout'))->name('checkout');
+
+    Route::get('/thankyou', fn()=>Inertia::render('User/Customer/Thankyou'))->name('thankyou');
+    
+
+    Route::prefix('account')->group(function(){
+        Route::get('/delivery',  fn()=>Inertia::render('User/Customer/Account/AccountDelivery'))->name('delivery');
+        
+        Route::get('/manage',  fn()=>Inertia::render('User/Customer/Account/AccountManage'))->name('manage');
+        
+        Route::get('/passwordchange', fn()=>Inertia::render('User/Customer/Account/AccountPasswordChange'))->name('passwordchange');
+    
+        Route::get('/payment', fn()=>Inertia::render('User/Customer/Account/AccountPayment'))->name('payment');
+    
+        Route::get('/purchases', fn()=>Inertia::render('User/Customer/Account/AccountPurchases'))->name('purchases');
+    
+        Route::get('/wishlist', fn()=>Inertia::render('User/Customer/Account/AccountWishList'))->name('wishlist');
+    
+    });
+}
+);
+
+
 
 Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Dashboard');
