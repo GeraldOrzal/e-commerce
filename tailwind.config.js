@@ -8,28 +8,42 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
     ],
-
     theme: {
+        screens: {
+            'xs': '200px',
+            // => @media (min-width: 200px) { ... }
+
+            'sm': '481px',
+            // => @media (min-width: 481px) { ... }
+        
+            'md': '769px',
+            // => @media (min-width: 769px) { ... }
+        
+            'lg': '1025px',
+            // => @media (min-width: 1025px) { ... }
+        
+            'xl': '1281px',
+            // => @media (min-width: 1281px) { ... }
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
         colors: {
-            primary: 'white',
+            primary: '#ffffff',
             secondary: 'rgb(163 163 163)',
-            thirdary: '#F0F0F0',
+            thirdary: '#f0f0f0',
             fourthdary: 'rgb(115 115 115)',
             fifthdary: 'rgb(0 0 128)',
             sixthdary: 'rgb(241 245 249)',
-            seventhdary: '#C4C4C4',
-            ltsccolorscheme1: 'rgb(11 35 122)',
-            ltsccolorscheme2: 'rgb(68 78 163)',
-            ltsccolorscheme3: 'rgb(153 27 130)',
-            
+            danger: '#ff0000',
+            neutral1: '#2f2d8e',
+            neutral2: '#9c1b1f',
+            neutral3: '#999999',
+            neutral4: '#f0f0f0',
         }
     },
-
     plugins: [
         require('tailwindcss'),
         require('autoprefixer'),
