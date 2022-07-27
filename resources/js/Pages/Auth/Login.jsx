@@ -6,7 +6,8 @@ import Input from '@/Components/Input';
 import Label from '@/Components/Label';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
-import { BsFacebook, BsGoogle,BsTwitter } from 'react-icons/bs';
+import { BsFacebook, BsTwitter, BsPerson, BsLock } from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc'
 
 export default function Login({ status, canResetPassword }) {
     
@@ -41,39 +42,41 @@ export default function Login({ status, canResetPassword }) {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
-            <h1 className='mr-5 text-4xl text-center text-fourthdary'>
+            <h1 className='text-3xl text-center py-2 mb-5'>
                 Sign in to continue
             </h1>    
-                <div>
-                    <Label forInput="email" value="Email" />
-
+                <div className='flex flex-row items-center'>
+                    <div className='bg-neutral4 p-2 rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="text"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
+                        className="w-full rounded-tr-xl"
                         autoComplete="username"
                         isFocused={true}
                         handleChange={onHandleChange}
+                        required
+                        placeholder="Enter Email"
                     />
                 </div>
 
-                <div className="mt-4">
-                    <Label forInput="password" value="Password" />
-
+                <div className="mt-4 flex flex-row items-center">
+                    <div className='bg-neutral4 p-2 mb-3 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="mb-3 w-full rounded-tr-xl"
                         autoComplete="current-password"
                         handleChange={onHandleChange}
+                        required
+                        placeholder="Enter Password"
                     />
                 </div>
                 {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
+                            className="underline float-right text-sm text-danger"
                         >
                             Forgot your password?
                         </Link>
@@ -82,48 +85,46 @@ export default function Login({ status, canResetPassword }) {
                     <label className="flex items-center">
                         <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
 
-                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                        <span className="ml-2 text-sm">Remember me</span>
                     </label>
                 </div>
 
                 <div className="flex items-center mt-4">
                     
                     
-                    <Button className="w-full " processing={processing}>
+                    <Button className='w-full py-3' processing={processing}>
                         <label className='text-center w-full'>Log in</label>
                     </Button>
                 </div>
                 <div
-                className='flex flex-row items-center'
+                className='flex flex-row items-center mt-5'
                 >
-
-                <div className='border-solid border-b-2 w-full h-0'></div>
+                <div className='border-solid border-b w-full h-0'></div>
                 <label className='mx-5'>or</label>
-                <div className='border-solid border-b-2 w-full h-0'></div>
+                <div className='border-solid border-b w-full h-0'></div>
                 </div>
                 <div className="flex flex-col items-center mt-4">
                     <h3>Login using</h3>
                     <div className='flex flex-row space-x-5 mb-5 p-5'>
-                        
-                            <BsTwitter
-                           size={30}
-                            color="#00acee"
-                            />
-                        
-                        <BsFacebook
-                        size={30}
+                        <BsTwitter
+                        size={25}
+                        color="#00acee"
                         />
-                        <BsGoogle
-                        size={30}
+                        <BsFacebook
+                        size={25}
+                        color="#0000ff"
+                        />
+                        <FcGoogle
+                        size={25}
                         />
                     </div>
                     
                 </div>
                 <div className='flex items-center justify-center'>
-                    Dont have an account?
+                    Don't have an account?
                     <Link
                                 href={route('register')}
-                                className="underline text-sm text-gray-600 hover:text-gray-900 font-bold"
+                                className="underline ml-1 text-sm text-danger"
                             >
                             Register
                     </Link>
