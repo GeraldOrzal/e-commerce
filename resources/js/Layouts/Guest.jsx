@@ -7,7 +7,7 @@ import Footer from '@/Components/Footer';
 export default function Guest({ children }) {
 
     return (
-        <div className="flex flex-col sm:justify-center items-center sm:pt-0 bg-gradient-to-r from-neutral1 to-neutral2">
+        <div className="flex flex-col sm:justify-center items-center sm:pt-0  bg-gradient-to-br from-colorscheme1 via-colorscheme2 to-colorscheme3">
             <div className='bg-primary container-fluid flex flex-row items-center w-full justify-between p-2'>
                 {
                     !route().current("password.request") ?
