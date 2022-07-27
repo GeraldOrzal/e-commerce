@@ -1,16 +1,14 @@
 import React from 'react'
-import ApplicationLogo from '@/Components/ApplicationLogo';
+import ApplicationLogoFooter from '@/Components/ApplicationLogoFooter';
 import { Link } from '@inertiajs/inertia-react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 export default function Footer() {
   return (
-    <footer className='bg-fourthdary w-full flex flex-col p-5'>
+    <footer className='bg-seventhdary w-full flex flex-col p-5'>
                 <div className='flex flex-row justify-between px-10'>
-                    <ApplicationLogo className="self-center"/>
-                    <div className="self-center">
-                        <h1 className='font-bold text-4xl'>Luzon Transport</h1>
-                        <h1 className='font-bold text-4xl'>Service Cooperative</h1>
-                    </div>
+                    <ApplicationLogoFooter className="self-center"/>
+                    
+
                     <div className='flex flex-col'>
                         <h2 className='font-bold text-xl'>Categories</h2>
                         <Link><h3>Help Center</h3></Link>

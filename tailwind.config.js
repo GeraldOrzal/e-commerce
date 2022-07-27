@@ -22,6 +22,11 @@ module.exports = {
             fourthdary: 'rgb(115 115 115)',
             fifthdary: 'rgb(0 0 128)',
             sixthdary: 'rgb(241 245 249)',
+            seventhdary: '#C4C4C4',
+            ltsccolorscheme1: 'rgb(11 35 122)',
+            ltsccolorscheme2: 'rgb(68 78 163)',
+            ltsccolorscheme3: 'rgb(153 27 130)',
+            
         }
     },
 

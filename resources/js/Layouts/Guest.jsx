@@ -8,7 +8,7 @@ import Footer from '@/Components/Footer';
 export default function Guest({ children }) {
 
     return (
-        <div className="flex flex-col sm:justify-center items-center sm:pt-0  bg-gradient-to-r from-fourthdary to-fifthdary">
+        <div className="flex flex-col sm:justify-center items-center sm:pt-0  bg-gradient-to-br from-ltsccolorscheme1 via-ltsccolorscheme2 to-ltsccolorscheme3">
             <div className='container-fluid flex flex-row items-center w-full justify-between p-2 bg-primary'>
 
 
