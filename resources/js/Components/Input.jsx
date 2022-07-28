@@ -20,7 +20,7 @@ export default function Input({
     }, []);
 
     return (
-        <div className="flex flex-col items-start flex-auto">
+        <>
             <input
                 type={type}
                 name={name}
@@ -35,6 +35,6 @@ export default function Input({
                 onChange={(e) => handleChange(e)}
                 placeholder={placeholder}
             />
-        </div>
+        </>
     );
 }
