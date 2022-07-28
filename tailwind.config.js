@@ -38,6 +38,7 @@ module.exports = {
             fifthdary: 'rgb(0 0 128)',
             sixthdary: 'rgb(241 245 249)',
             danger: '#ff0000',
+            transparent: 'transparent',
             neutral1: '#2f2d8e',
             neutral2: '#9c1b1f',
             neutral3: '#999999',

@@ -67,10 +67,12 @@ export default function Guest({ children }) {
                             <></>
                 }
             </div>
-            <div className="w-full sm:max-w-md mt-6 px-6 py-10 bg-primary overflow-hidden sm:rounded-lg">
+            <div className="w-full px-6 py-10 bg-primary overflow-hidden 
+            sm:max-w-md sm:rounded-lg sm:mt-10
+            xs:max-w-md xs:rounded-0 xs:mt-0">
                 {children}
             </div>
-            <div className='flex flex-row text-primary p-5 space-x-1'>
+            <div className='flex flex-row justify-center items-center sm:text-primary sm:bg-transparent sm:w-full xs:text-default xs:bg-primary xs:w-full p-5 sm:pt-5 xs:pt-0 space-x-1'>
                 <Link> Privacy Policy</Link>
                 <label>|</label>
                 <Link>Terms and Condition</Link>
