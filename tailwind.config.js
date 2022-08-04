@@ -10,7 +10,7 @@ module.exports = {
     ],
     theme: {
         screens: {
-            'xs': '200px',
+            'xs': '0px',
             // => @media (min-width: 200px) { ... }
 
             'sm': '481px',
@@ -26,6 +26,14 @@ module.exports = {
             // => @media (min-width: 1281px) { ... }
         },
         extend: {
+            backgroundImage:{
+                category1:'url("/resources/js/images/w-apparel.png")',
+                category2:'url("/resources/js/images/m-apparel.png")',
+                category3:'url("/resources/js/images/Rectangle 385.png")',
+                category4:'url("/resources/js/images/Rectangle 386.png")',
+                category5:'url("/resources/js/images/Rectangle 387.png")',
+                category6:'url("/resources/js/images/Rectangle 388.png")',
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },

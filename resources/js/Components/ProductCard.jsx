@@ -4,32 +4,44 @@ export default function ProductCard(props) {
   return (
     <div className='flex flex-row items-center space-x-2 overflow-x-scroll p-2 mb-7'>
       <div className='flex flex-col'>
-        <div className='bg-thirdary rounded-tr-md rounded-tl-md container p-24 px-28'>1</div>
-        <div className='bg-fourthdary rounded-br-md rounded-bl-md  container p-10 px-28'></div>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>1</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
       </div>
       <div className='flex flex-col'>
-        <div className='bg-thirdary rounded-tr-md rounded-tl-md container p-24 px-28'>2</div>
-        <div className='bg-fourthdary rounded-br-md rounded-bl-md  container p-10 px-28'></div>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>2</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
       </div>
       <div className='flex flex-col'>
-        <div className='bg-thirdary rounded-tr-md rounded-tl-md container p-24 px-28'>3</div>
-        <div className='bg-fourthdary rounded-br-md rounded-bl-md  container p-10 px-28'></div>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>3</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
       </div>
       <div className='flex flex-col'>
-        <div className='bg-thirdary rounded-tr-md rounded-tl-md container p-24 px-28'>4</div>
-        <div className='bg-fourthdary rounded-br-md rounded-bl-md  container p-10 px-28'></div>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>4</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
       </div>
       <div className='flex flex-col'>
-        <div className='bg-thirdary rounded-tr-md rounded-tl-md container p-24 px-28'>5</div>
-        <div className='bg-fourthdary rounded-br-md rounded-bl-md  container p-10 px-28'></div>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>5</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
       </div>
       <div className='flex flex-col'>
-        <div className='bg-thirdary rounded-tr-md rounded-tl-md container p-24 px-28'>6</div>
-        <div className='bg-fourthdary rounded-br-md rounded-bl-md  container p-10 px-28'></div>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>6</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
       </div>
       <div className='flex flex-col'>
-        <div className='bg-thirdary rounded-tr-md rounded-tl-md container p-24 px-28'>7</div>
-        <div className='bg-fourthdary rounded-br-md rounded-bl-md  container p-10 px-28'></div>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>7</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
+      </div>
+      <div className='flex flex-col'>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>8</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
+      </div>
+      <div className='flex flex-col'>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>9</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
+      </div>
+      <div className='flex flex-col'>
+        <div className='bg-thirdary rounded-tr-md rounded-tl-md text-center px-20 py-20'>10</div>
+        <div className='bg-fourthdary rounded-br-md rounded-bl-md px-20 py-8'></div>
       </div>
     </div>
   )
