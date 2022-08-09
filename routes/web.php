@@ -20,7 +20,7 @@ use Inertia\Inertia;
 
 Route::get('/', [ShopController::class,'create'])->name("index");
 
-Route::get('/viewproduct', fn()=>Inertia::render('User/Customer/ViewProduct'))->name('viewproduct');
+Route::get('/viewproduct/{id}', [ShopController::class,'viewProduct'])->name('viewproduct');
 
 Route::group([
     'prefix'=>'user'

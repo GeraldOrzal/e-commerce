@@ -24,7 +24,7 @@ class ProductFactory extends Factory
             'rating'=>rand(0,5),
             'storeid'=>rand(1,50),
             'productdetails'=>json_encode(array(fake()->text(5)=>fake()->paragraph(2),fake()->text(5)=>fake()->paragraph(2))),
-            'imagesname'=>fake()->image('public/storage/images',640,480,null,false),
+            'imagesname'=>json_encode(array(fake()->imageUrl(640,480,'product',true),fake()->imageUrl(640,480,'product',true),fake()->imageUrl(640,480,'product',true),fake()->imageUrl(640,480,'product',true))),
         ];
     }
 }

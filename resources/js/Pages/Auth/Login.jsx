@@ -93,7 +93,7 @@ export default function Login({ status, canResetPassword }) {
                     
                     
                     <Button className='w-full py-3' processing={processing}>
-                        <label className='text-center w-full'>Log in</label>
+                        Log in
                     </Button>
                 </div>
                 <div
