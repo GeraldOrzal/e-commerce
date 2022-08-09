@@ -6,12 +6,13 @@ export default function AccountWishList(props) {
     <Authenticated
     auth={props.auth}
     errors={props.errors}
-    header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Shop</h2>}
     >
         <AccountNav
-
+          Username={props.auth.user.name}
         >
-          wishlist
+          <div className='w-4/5 h-full border-1 rounded shadow-lg m-5'>
+            Wishlist
+          </div>          
         </AccountNav>
     </Authenticated>
   )
