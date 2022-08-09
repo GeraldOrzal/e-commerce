@@ -1,20 +1,40 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ProductCard from '@/Components/ProductCard';
-import {GoSearch} from 'react-icons/go';
+import { GoSearch } from 'react-icons/go';
 import { Link, Head } from '@inertiajs/inertia-react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import HeaderGuest from '@/Components/HeaderGuest';
 import HeaderUser from '@/Components/HeaderUser';
 
 export default function Welcome(props) {
-    console.log(props.categories);
+    const [hoverCategory, sethoverCategory] = useState(false);
+
+    console.log(hoverCategory);
     return (
         <>
         <Head title="Welcome" />
         <div className='container p-10 pt-5 mx-auto '>
-           
-            {props.auth.user?
-            <HeaderUser auth={props.auth}/ >: <HeaderGuest />}
+            <header className='container p-5 mx-auto mb-2 flex flex-row justify-center items-center'>
+                <ApplicationLogo className="mr-20"/>
+                <input type='text' className='bg-thirdary pl-5 outline-0 rounded-bl-xl p-2 w-3/5' placeholder='Search shop / product name'/>
+                <button type='submit' className='bg-thirdary rounded-tr-xl pr-5 px-2 py-2.5 text-fourthdary'><GoSearch className='text-xl'/></button>
+                <nav>
+                {
+                    props.auth.user? 
+                    <Link href={route('shop')} className=" ml-10 underline text-fourthdary">
+                    Shop
+                </Link>:
+                <>
+                <Link href={route('login')} className="ml-4 underline text-fourthdary">
+                        Login
+                    </Link>
+                    <Link href={route('register')} className="ml-4 underline text-fourthdary">
+                        Register
+                    </Link>
+                </>
+                }        
+                </nav>
+            </header>
             <main>
                 <div className='container mx-auto flex flex-row justify-center items-center mb-7 '>
                     <div className='container bg-fourthdary p-32 py-20 w-3/6 text-center mr-2'>Ads</div>
@@ -33,9 +53,9 @@ export default function Welcome(props) {
                 </div>
                 <div className='w-full bg-fourthdary p-52'>
 
-                </div>
-            </main>
-        </div>
+                    </div>
+                </main>
+            </div>
         </>
     );
 }
