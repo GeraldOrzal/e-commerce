@@ -11,8 +11,8 @@ export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b border-gray-100">
+        <div className="min-h-screen bg-thirdary">
+            <nav className="bg-primary">
                 <div className='flex flex-row justify-end space-x-2 p-2 underline'>
                     <Link
                         
@@ -20,7 +20,7 @@ export default function Authenticated({ auth, header, children }) {
                     <Link> Contact Us</Link>
                     <Link> Track Order</Link>
                 </div>
-                <header className='container px-5 mx-auto mb-2 flex flex-row justify-center items-center'>
+                <header className='container-fluid mb-2 flex flex-row justify-center items-center space-x-20 px-5'>
                   <SearchBar
                     auth={auth}
                   />
@@ -29,7 +29,7 @@ export default function Authenticated({ auth, header, children }) {
             </nav>
 
             {header && (
-                <header className="bg-white shadow">
+                <header >
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}

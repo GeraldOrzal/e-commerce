@@ -12,7 +12,7 @@ export default function Welcome(props) {
         <>
             <Head title="Welcome" />
             <div className='container p-10 pt-5 mx-auto '>
-                <header className='container p-5 mx-auto mb-2 flex flex-row justify-center items-center'>
+                <header className='container mx-auto mb-2 flex flex-row justify-center items-center'>
                   <SearchBar
                     auth={props.auth}
                   />
