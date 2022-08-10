@@ -29,6 +29,8 @@ function(){
     
     Route::get('/shop', [ShopController::class,'create'])->name('shop');
 
+    Route::get('/shop?', [ShopController::class,'filteredShop'])->name('filteredshop');
+
     Route::get('/cart', fn()=>Inertia::render('User/Customer/Cart'))->name('cart');
 
     Route::get('/checkout', fn()=>Inertia::render('User/Customer/Checkout'))->name('checkout');
