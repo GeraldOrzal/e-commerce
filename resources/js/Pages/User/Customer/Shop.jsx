@@ -30,7 +30,7 @@ export default function Shop(props) {
       errors={props.errors}
       header={<>
       
-      <Link href={route('index')}>Home</Link>{">"}<label>All Products</label>
+      <Link href={route('index')} className="text-xl mr-2">Home</Link>{">"}<label className="ml-2 text-xl">All Products</label>
       </>}
     >
       <div className='flex flex-row justify-end px-20 space-x-2 m-2'>
