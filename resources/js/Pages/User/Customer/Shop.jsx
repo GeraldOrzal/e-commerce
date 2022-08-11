@@ -186,7 +186,7 @@ export default function Shop(props) {
           </div>
         </div>
       </div>
-      <div className='container-fluid grid grid-cols-4 grid-rows-6 place-items-center gap-y-5 p-5'>
+      <div className='container-fluid grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-rows-6 place-items-center gap-y-5 p-5 xs:grid-cols-1'>
         {
           products.map(({ productid, productname, rating, price }) => <ProductCard
             productid={productid}

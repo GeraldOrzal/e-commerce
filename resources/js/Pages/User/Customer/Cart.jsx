@@ -10,37 +10,41 @@ import { Link,useForm } from '@inertiajs/inertia-react'
 
 
 export default function Cart(props) {
-  const [itemsSelected, setitemsSelected] = useState({
+  const initial = {
     count:0,
-    selected:[],
+    
     total:0,
-  });
-  const { data, setData, post, processing, errors, reset } = useForm({
-
+  }
+  const [itemsSelected, setitemsSelected] = useState(initial);
+  const { data, setData, patch,delete:remove, processing, errors, reset } = useForm({
+    'cartids':[]
   });
   
+
   const submit = (e) => {
     e.preventDefault();
-    setData('checkbox',itemsSelected.selected);
-    console.log(itemsSelected);
-    // post(route('removecart'));
+    if(e.nativeEvent.submitter.name=="remove"){
+      remove(route('removecart'));
+      return;
+    }
+    patch(route('movetowishlist'));
+   
 };
 
-  const handleChecked = (data)=>{
-    if(data.target.checked){
+  const handleChecked = (newdata)=>{
+    if(newdata.target.checked){
       
-      
+      setData('cartids',[...data.cartids,newdata.target.value]);  
       setitemsSelected({
         ...itemsSelected,
-        selected:[...itemsSelected.selected,data.target.value],
+        
         count:itemsSelected.count+1
       })
     }else{
-      var temp = itemsSelected.selected;
-      temp.splice(itemsSelected.selected.indexOf(data.target.value),1);
+      
       setitemsSelected({
         ...itemsSelected,
-        selected:temp,
+        
         count:itemsSelected.count-1
       })
     }
@@ -63,12 +67,11 @@ export default function Cart(props) {
         <div>
           
           <h2 className='font-bold'>SellerName</h2>
-          <CartProductRow id={10} handleChange={handleChecked} productname={props.productname} brand={props.brand} price={props.price} date={props.date} address={props.address} ordernumber={props.ordernumber} />
-          <CartProductRow id={11}handleChange={handleChecked} productname={props.productname} brand={props.brand} price={props.price} date={props.date} address={props.address} ordernumber={props.ordernumber} />
-          <CartProductRow id={12}handleChange={handleChecked} productname={props.productname} brand={props.brand} price={props.price} date={props.date} address={props.address} ordernumber={props.ordernumber} />
-          <CartProductRow id={13}handleChange={handleChecked} productname={props.productname} brand={props.brand} price={props.price} date={props.date} address={props.address} ordernumber={props.ordernumber} />
-          <CartProductRow id={14}handleChange={handleChecked} productname={props.productname} brand={props.brand} price={props.price} date={props.date} address={props.address} ordernumber={props.ordernumber} />
-          <CartProductRow id={15}handleChange={handleChecked} productname={props.productname} brand={props.brand} price={props.price} date={props.date} address={props.address} ordernumber={props.ordernumber} />
+          {
+            props.cart.map(({cartid,productname,brandid,price})=><CartProductRow key={cartid} id={cartid} handleChange={handleChecked} productname={productname} brand={props.brand} price={price} date={props.date} address={props.address} ordernumber={props.ordernumber} />)
+          }
+          
+          
         </div>
         <div className='flex flex-row items-center p-2 space-x-5'>
             <div >
@@ -77,8 +80,8 @@ export default function Cart(props) {
               />
               <h2 className='inline-block'>Select all ({itemsSelected.count})</h2>
             </div>
-            <Button type='submit' name="removecart">Remove</Button>
-            <Link method="post" as="button">Move to Wishlist</Link>
+            <Button type='submit' name="remove" processing={processing}>Remove</Button>
+            <Button type="submit" name="move" processing={processing}>Move to Wishlist</Button>
             <h2>{`Total(${itemsSelected.count} items): ₱${itemsSelected.total}.00`}</h2>
             <Button>Checkout</Button>
         </div>

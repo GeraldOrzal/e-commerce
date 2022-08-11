@@ -14,13 +14,14 @@ export default function Authenticated({ auth, header, children }) {
         <div className="min-h-screen bg-thirdary">
             <nav className="bg-primary">
                 <div className='flex flex-row justify-end space-x-2 p-2 underline'>
-                    <Link
-                        
-                    > About Us</Link>
-                    <Link> Contact Us</Link>
-                    <Link> Track Order</Link>
+                    <div className='flex flex-row'>
+                        <ResponsiveNavLink
+                        > About Us</ResponsiveNavLink>
+                        <ResponsiveNavLink> Contact Us</ResponsiveNavLink>
+                        <ResponsiveNavLink> Track Order</ResponsiveNavLink>
+                    </div>
                 </div>
-                <header className='container-fluid mb-2 flex flex-row justify-center items-center space-x-20 px-5'>
+                <header className='container-fluid mb-2 flex flex-row justify-center items-center sm:space-x-20 sm:px-5'>
                   <SearchBar
                     auth={auth}
                   />

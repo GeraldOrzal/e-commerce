@@ -32,11 +32,11 @@ export default function SearchBar(props) {
     };
   return (
     <>
-        <Link href={props.auth.user ? route('shop'):route("index")} className="mr-20">
+        <Link href={props.auth.user ? route('shop'):route("index")} className="mr-20 sm:block xs:hidden">
         <ApplicationLogo  />
         </Link>
         <div className='flex flex-row items-center w-full justify-center'>
-                        <div className='w-3/5 relative'>
+                        <div className='sm:w-3/5 xs:w-full relative'>
                             <input type='text' className='bg-thirdary pl-5 outline-0 rounded-bl-xl p-2 w-full' placeholder='Search shop / product name' onChange={onEnterText}/>
                             <div className={`absolute bg-primary p-5 w-full ${results.data?'block':'hidden'} flex flex-col z-10`}>
                                    {results.data?.length!=0?results.data?.map((data)=><Link href={route('viewproduct',{id:data.productid})}>{data.productname}</Link>):"No data available"}
@@ -46,7 +46,7 @@ export default function SearchBar(props) {
                         <button type='submit' className={`bg-thirdary rounded-tr-xl pr-5 px-2 py-2.5 text-fourthdary ${results.isLoading?'disabled':""}`}> {results.isLoading?<AiOutlineLoading  className='text-xl animate-spin'/>:<GoSearch className='text-xl' />}</button>
         </div>
 
-                    <nav className='flex flex-row items-center space-x-5 w-2/5'>
+                    <nav className='flex flex-row items-center space-x-5 w-2/5 sm:flex xs:hidden'>
                         {
                             props.auth.user ?<>
                             <Link href={route('cart')}>

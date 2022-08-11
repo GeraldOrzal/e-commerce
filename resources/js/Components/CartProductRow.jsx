@@ -16,7 +16,7 @@ export default function CartProductRow(props) {
             <li>{`Order Placed on: ${props.date}`}</li>
             <li>{`Ship To: ${props.address}`}</li>
         </ul>
-        <div>
+        <div >
             <h2 className='text-sm'>{`Order Number: ${props.ordernumber}`}</h2>
             <Link className="font-bold text-sm" >View Order Details</Link>
         </div>

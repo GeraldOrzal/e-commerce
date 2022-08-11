@@ -4,8 +4,10 @@ namespace App\Http\Controllers\User\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Cart;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -84,23 +86,59 @@ class ShopController extends Controller
         ]);
     }
 
+   
+
+    public function store(Request $request){
+        
+        $found = Cart::where('productid','=',$request->productid)->get();
+        if(count($found)!=0){
+            return back()->with('message','Item already in cart');    
+        }
+        $cart = new Cart();
+        $cart->productid = $request->productid;
+        $cart->userid = $request->userid;
+        $cart->iswishlist = $request->iswishlist;
+        $cart->save();
+
+        return back()->with('message','Successful');
+    }
+    
+    public function destroy(Request $request){
+        
+        $allIds = $request->cartids;
+        foreach ($allIds as $key => $value) {
+            
+            $cartItem = Cart::find($value);
+            $cartItem->delete();
+        }
+        
+        return back()->with('message','Successful');
+    }
+    public function update(Request $request){
+        
+        $allIds = $request->cartids;
+        foreach ($allIds as $key => $value) {   
+            $cartItem = Cart::find($value);
+            $cartItem->iswishlist = true;
+            
+            $cartItem->save();
+        }
+        return back()->with('message','Successful');
+    }
+    public function checkoutitem(Request $request){
+
+    }
+    public function viewMyCart(){
+        
+        $myCart = DB::table('cart')->join('products','products.productid','=','cart.productid')->select('*')->where('userid','=',Auth::user()->id)->Where('iswishlist','=',false)->get();
+        return Inertia::render('User/Customer/Cart',[
+            'cart'=>$myCart
+        ]);
+    }
     public function viewProduct($productid){
         $product = Product::find($productid);
         return Inertia::render('User/Customer/ViewProduct',[
             'product'=>$product
         ]);
     }
-
-    public function store(Request $request){
-
-        dd($request->all());
-        return Redirect::back()->with('message','Successful');
-    }
-    
-    public function destroy(Request $request){
-
-        dd($request->all());
-        return Redirect::back()->with('message','Successful');
-    }
-    
 }

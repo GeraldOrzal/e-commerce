@@ -31,9 +31,13 @@ function(){
     
     Route::get('/shop', [ShopController::class,'create'])->name('shop');
     
-    Route::post('/cart',[ShopController::class,'destroy'])->name('removecart');
+    Route::delete('/cart',[ShopController::class,'destroy'])->name('removecart');
 
-    Route::get('/cart', fn()=>Inertia::render('User/Customer/Cart'))->name('cart');
+    Route::patch('/cart',[ShopController::class,'update'])->name('movetowishlist');
+    
+    Route::post('/cart',[ShopController::class,'store'])->name('addcart');
+
+    Route::get('/cart', [ShopController::class,'viewMyCart'])->name('cart');
 
     Route::get('/checkout', fn()=>Inertia::render('User/Customer/Checkout'))->name('checkout');
 
