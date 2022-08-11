@@ -4,6 +4,7 @@ import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, useForm } from '@inertiajs/inertia-react';
+import { BsLock } from 'react-icons/bs';
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -34,15 +35,18 @@ export default function ForgotPassword({ status }) {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
+            <div className='flex flex-row items-center'>
+                <div className='bg-neutral4 mt-1 p-2 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                 <Input
                     type="text"
                     name="email"
                     value={data.email}
-                    className="mt-1 block w-full"
+                    className="mt-1 block w-full rounded-tr-xl"
                     isFocused={true}
                     handleChange={onHandleChange}
+                    placeholder='Enter Email'
                 />
-
+            </div>
                 <div className="flex items-center justify-end mt-4">
                     <Button className="ml-4" processing={processing}>
                         Email Password Reset Link
