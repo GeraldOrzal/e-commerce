@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductCollection;
 use App\Models\Product;
 use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
@@ -74,5 +75,12 @@ class ProductController extends Controller
         $product->delete();
 
         return response()->json($product);
+    }
+    public function search(Request $request){
+        $item = $request->get('product');
+
+        return new ProductCollection(Product::where('productname','LIKE','%'.$item.'%')->get());
+
+
     }
 }

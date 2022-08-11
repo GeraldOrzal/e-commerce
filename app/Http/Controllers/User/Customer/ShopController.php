@@ -23,7 +23,6 @@ class ShopController extends Controller
                'categories'=>$categories
             ]);
         }
-        
         if(!empty($request->get('categories'))){
             if(str_contains($request->get('categories'),"&")){
                 $tempCat = explode("&",$request->get('categories'));
@@ -90,6 +89,16 @@ class ShopController extends Controller
             'product'=>$product
         ]);
     }
+
+    // public function showResults(Request $request){
+
+    //     return Inertia::render('User/Customer/Shop', [
+            
+    //         'allProducts'=>$allProducts,
+            
+    //     ]);
+    // }
+    
     
     
 }
