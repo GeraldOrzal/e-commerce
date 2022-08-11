@@ -92,7 +92,7 @@ export default function Login({ status, canResetPassword }) {
                 <div className="flex items-center mt-4">
                     
                     
-                    <Button className='w-full py-3' processing={processing}>
+                    <Button className='w-full py-3 text-center' processing={processing}>
                         Log in
                     </Button>
                 </div>

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 class ShopController extends Controller
 {
@@ -90,15 +91,16 @@ class ShopController extends Controller
         ]);
     }
 
-    // public function showResults(Request $request){
+    public function store(Request $request){
 
-    //     return Inertia::render('User/Customer/Shop', [
-            
-    //         'allProducts'=>$allProducts,
-            
-    //     ]);
-    // }
+        dd($request->all());
+        return Redirect::back()->with('message','Successful');
+    }
     
-    
+    public function destroy(Request $request){
+
+        dd($request->all());
+        return Redirect::back()->with('message','Successful');
+    }
     
 }
