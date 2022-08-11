@@ -1,9 +1,15 @@
 import React from 'react';
+import ApplicationLogoFooter from '@/Components/ApplicationLogoFooter';
 import FullLogo from '@/images/LTSCLogoFull.png';
 import { Link } from '@inertiajs/inertia-react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 export default function Footer() {
   return (
+    // <footer className='bg-seventhdary w-full flex flex-col p-5'>
+    //             <div className='flex flex-row justify-between px-10'>
+    //                 <ApplicationLogoFooter className="self-center"/>
+                    
+
     <footer className='bg-primary w-full flex flex-col p-5'>
                 <div className='flex 
                 md:flex-row md:justify-between md:items-start md:text-justify md:px-10 

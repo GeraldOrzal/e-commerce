@@ -26,7 +26,7 @@ export default function Input({
                 name={name}
                 value={value}
                 className={
-                    `bg-neutral4 outline-0 p-2 rounded-sm ` +
+                    `bg-primary outline-0 p-2 rounded-sm border` +
                     className
                 }
                 ref={input}

@@ -52,6 +52,9 @@ module.exports = {
             neutral2: '#9c1b1f',
             neutral3: '#999999',
             neutral4: '#f0f0f0',
+            colorscheme1: '#0B237A',
+            colorscheme2: '#444EA3',
+            colorscheme3: '#991B1E'
         }
     },
     plugins: [
