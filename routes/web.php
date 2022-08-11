@@ -24,13 +24,14 @@ Route::get('/', [ShopController::class,'create'])->name("index");
 Route::get('/viewproduct/{id}', [ShopController::class,'viewProduct'])->name('viewproduct');
 
 Route::group([
-    'prefix'=>'user'
+    'prefix'=>'user',
+    'middleware'=>'auth'
 ],
 function(){
     
     Route::get('/shop', [ShopController::class,'create'])->name('shop');
-
     
+    Route::post('/cart',[ShopController::class,'destroy'])->name('removecart');
 
     Route::get('/cart', fn()=>Inertia::render('User/Customer/Cart'))->name('cart');
 
