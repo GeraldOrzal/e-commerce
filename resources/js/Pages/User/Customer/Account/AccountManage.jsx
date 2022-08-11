@@ -5,16 +5,22 @@ import React from 'react'
 export default function AccountManage(props) {
   return (
     <Authenticated
-    auth={props.auth}
-    errors={props.errors}
-    header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Shop</h2>}
+      auth={props.auth}
+      errors={props.errors}
     >
-        <AccountNav
-
-        >
-          manage
-        </AccountNav>
+      <AccountNav
+        Username={props.auth.user.name}
+      >
+        <div className='w-4/5 border-1 rounded shadow-xl m-5 divide-y'>
+          <div className='p-5 font-bold'>Manage Account</div>
+          <div className='p-5'>
+            Asd
+            
+            
+          </div>
+        </div>
+      </AccountNav>
     </Authenticated>
-    
+
   )
 }

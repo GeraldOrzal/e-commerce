@@ -6,12 +6,14 @@ export default function AccountDelivery(props) {
     <Authenticated
     auth={props.auth}
     errors={props.errors}
-    header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Shop</h2>}
     >
         <AccountNav
-
+          Username={props.auth.user.name}
         >
-          Delivery
+          <div className='w-4/5 border-1 rounded shadow-xl m-5 divide-y'>
+            <div className='p-5'>Delivery Address</div>
+            <div>Asd</div>
+          </div>     
         </AccountNav>
     </Authenticated>
   )

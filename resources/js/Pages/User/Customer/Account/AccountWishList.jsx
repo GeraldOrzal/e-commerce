@@ -10,8 +10,9 @@ export default function AccountWishList(props) {
         <AccountNav
           Username={props.auth.user.name}
         >
-          <div className='w-4/5 h-full border-1 rounded shadow-lg m-5'>
-            Wishlist
+          <div className='w-4/5 border-1 rounded shadow-xl m-5 divide-y'>
+            <div className='p-5'>Manage Account</div>
+            <div>Asd</div>
           </div>          
         </AccountNav>
     </Authenticated>
