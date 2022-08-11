@@ -20,6 +20,7 @@ use Inertia\Inertia;
 
 Route::get('/', [ShopController::class,'create'])->name("index");
 
+
 Route::get('/viewproduct/{id}', [ShopController::class,'viewProduct'])->name('viewproduct');
 
 Route::group([
@@ -28,6 +29,8 @@ Route::group([
 function(){
     
     Route::get('/shop', [ShopController::class,'create'])->name('shop');
+
+    
 
     Route::get('/cart', fn()=>Inertia::render('User/Customer/Cart'))->name('cart');
 
