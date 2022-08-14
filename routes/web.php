@@ -69,6 +69,20 @@ function(){
     Route::get('/dashboard', function () {
         return Inertia::render('User/Seller/DashboardSeller');
     })->name('dashboardseller');    
+
+    Route::get('/product', fn()=>Inertia::render('User/Seller/Product'))->name('product');
+
+    Route::get('/addproduct', fn()=>Inertia::render('User/Seller/AddProducts'))->name('addproduct');
+    
+    Route::get('/shipment', fn()=>Inertia::render('User/Seller/Shipment'))->name('shipment');
+
+    Route::get('/orders', fn()=>Inertia::render('User/Seller/Order'))->name('orders');
+
+    Route::get('/sale', fn()=>Inertia::render('User/Seller/Sale'))->name('sale');
+
+    Route::get('/review', fn()=>Inertia::render('User/Seller/Review'))->name('review');
+
+    Route::get('/inbox', fn()=>Inertia::render('User/Seller/Inbox'))->name('inbox');
 }
 );
 
