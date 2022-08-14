@@ -7,7 +7,7 @@ import Checkbox from '@/Components/Checkbox';
 import SearchBar from '@/Components/SearchBar';
 import { IoIosArrowDown,IoIosArrowUp,IoMdOptions } from 'react-icons/io';
 export default function Shop(props) {
-  const [products, setproducts] = useState(props.allProducts)
+  const [products, setproducts] = useState(props.allProducts.data)
   const [filterState, setfilterState] = useState({
     isOpen:false,
     category:{
@@ -23,7 +23,15 @@ export default function Shop(props) {
       isOpen:false,
     },
   })
-  console.log(props);
+  function RenderButtonBoxes(){
+    let temp = []
+    for (let index = !props.allProducts.current_page - 3 <= 0 ?props.allProducts.current_page - 3:1 ;  !props.allProducts.current_page + 3 > props.allProducts.total ? props.allProducts.current_page + 3:props.allProducts.total; index++) {
+      const element = <Link className='border rounded-sm p-2' href={route('shop',{page:index})}>{index}</Link>;
+      temp.push(element);
+    }
+    return temp;
+  }
+  console.log(props.allProducts);
   return (
     <Authenticated
       auth={props.auth}
@@ -48,7 +56,7 @@ export default function Shop(props) {
           <div className={`w-60 right-0 flex flex-col absolute bg-primary p-5 shadow rounded ${filterState.isOpen?"block":"hidden"} text-secondary z-10` }>
             <div className='flex flex-row '>
               Filters
-              <Link href={route("shop")}>Clear all</Link>
+              <Link href={route("shop",{page:1})}>Clear all</Link>
             </div>
             <Slider/>
             <hr></hr>
@@ -85,7 +93,7 @@ export default function Shop(props) {
                       
                     }else{
                       if(route().params.categories==a.description){
-                        window.location.href = route('shop');
+                        window.location.href = route('shop',{page:1});
                       }else{
                         window.location.href = route('shop',{
                           ...route().params,
@@ -196,6 +204,12 @@ export default function Shop(props) {
             rating={rating}
           />)
         }
+      </div>
+      <div className='flex flex-row space-x-2 justify-center mb-2'>
+{/*       
+        {
+          RenderButtonBoxes()
+        } */}
       </div>
     </Authenticated>
   )

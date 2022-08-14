@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -19,7 +21,7 @@ class ShopController extends Controller
 
         $categories = DB::table('categories')->select('*')->get();
         
-        if($request->getRequestUri()==RouteServiceProvider::HOME){
+        if($request->getRequestUri()==RouteServiceProvider::HOMECUSTOMER){
             $allFeaturedProducts = Product::where('rating',[5,4,3])->take(20)->get();
             return Inertia::render('Welcome', [
                'featured'=>$allFeaturedProducts,
@@ -72,15 +74,26 @@ class ShopController extends Controller
             }
             
         }
-        $count = DB::table('products')->count();
+        
         if(empty($myString)){
-            $allProducts = DB::table('products')->join('categories','products.categoryid','=','categories.categoryid')->select('products.*','categories.description')->get();
+            $allProducts = DB::table('products')->join('categories','products.categoryid','=','categories.categoryid')->select('products.*','categories.description')->paginate(20);
+            
         }else{
-            $allProducts = DB::select(DB::raw("SELECT * FROM products INNER JOIN categories on products.categoryid = categories.categoryid $myString"));
+            $currentPage = $request->get('page');
+            $rowSkip = 20 * $currentPage;
+            if(isset($tempSort)){
+                $results = DB::select(DB::raw("SELECT * FROM products INNER JOIN categories on products.categoryid = categories.categoryid $myString ,products.productid asc limit 20 offset $rowSkip"));
+            }else{
+
+                $results = DB::select(DB::raw("SELECT * FROM products INNER JOIN categories on products.categoryid = categories.categoryid $myString ORDER BY products.productid asc limit 20 offset $rowSkip"));
+            }
+            
+            $allProducts = new Paginator($results,20,$currentPage);
             
         }
+        
         return Inertia::render('User/Customer/Shop', [
-               'count' => $count,
+               
                'allProducts'=>$allProducts,
                'categories'=>$categories
         ]);
@@ -89,7 +102,7 @@ class ShopController extends Controller
    
 
     public function store(Request $request){
-        
+      
         $found = Cart::where('productid','=',$request->productid)->get();
         if(count($found)!=0){
             return back()->with('message','Item already in cart');    
@@ -131,8 +144,13 @@ class ShopController extends Controller
     public function viewMyCart(){
         
         $myCart = DB::table('cart')->join('products','products.productid','=','cart.productid')->select('*')->where('userid','=',Auth::user()->id)->Where('iswishlist','=',false)->get();
+        $total = 0;
+        foreach ($myCart as $key => $value) {
+            $total += $value->price;
+        }
         return Inertia::render('User/Customer/Cart',[
-            'cart'=>$myCart
+            'cart'=>$myCart,
+            'maxPrice'=>$total
         ]);
     }
     public function viewProduct($productid){

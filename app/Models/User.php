@@ -22,6 +22,12 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public const ISSUPERADMIN = 1;
+    public const ISADMIN = 2;
+    public const ISUSER = 3;
+
+    public const ISCUSTOMER = 2;
+    public const ISSELLER = 1;
 
     /**
      * The attributes that should be hidden for serialization.

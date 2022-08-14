@@ -13,7 +13,8 @@ export default function Authenticated({ auth, header, children }) {
     return (
         <div className="min-h-screen bg-thirdary">
             <nav className="bg-primary">
-                <div className='flex flex-row justify-end space-x-2 p-2 underline'>
+                {
+                    auth.user?.usertypeid!=2&&<div className='flex flex-row justify-end space-x-2 p-2 underline'>
                     <div className='flex flex-row'>
                         <ResponsiveNavLink
                         > About Us</ResponsiveNavLink>
@@ -21,6 +22,7 @@ export default function Authenticated({ auth, header, children }) {
                         <ResponsiveNavLink> Track Order</ResponsiveNavLink>
                     </div>
                 </div>
+                }
                 <header className='container-fluid mb-2 flex flex-row justify-center items-center sm:space-x-20 sm:px-5'>
                   <SearchBar
                     auth={auth}
@@ -36,7 +38,7 @@ export default function Authenticated({ auth, header, children }) {
             )}
 
             <main>{children}</main>
-            <Footer/>
+            {auth?.usertypeid==2&&<Footer/>}
         </div>
     );
 }

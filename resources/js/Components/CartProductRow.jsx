@@ -1,11 +1,24 @@
-import React from 'react'
+import React,{useRef,useEffect} from 'react'
 import Checkbox from '@/Components/Checkbox'
 import { BsArrowUpLeft } from 'react-icons/bs'
 import { Link } from '@inertiajs/inertia-react'
+
+
+
 export default function CartProductRow(props) {
+    const ref = React.createRef();
+    useEffect(() => {
+    
+        props.setRef(ref);
+      return () => {
+        
+      }
+    }, [props.handleChange])
+        
+    
     return (
     <div className='flex flex-row items-center w-full space-x-5'>
-        <Checkbox handleChange={props.handleChange} value={props.id} name="product"/>
+        <Checkbox handleChange={props.handleChange} price={props.price} value={props.id} name="product" ref={ref} required={props.req}/>
         <div className='w-20 h-15'>
             <img src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80"  className='object-contain'/>
         </div>

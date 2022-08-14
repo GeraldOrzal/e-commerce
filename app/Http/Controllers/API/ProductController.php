@@ -77,9 +77,13 @@ class ProductController extends Controller
         return response()->json($product);
     }
     public function search(Request $request){
-        $item = $request->get('product');
 
-        return new ProductCollection(Product::where('productname','LIKE','%'.$item.'%')->get());
+        $item = $request->get('product');
+        $showIndex = $request->get('show');
+        if(isset($showIndex)){
+            return new ProductCollection(Product::where('productname','LIKE','%'.$item.'%')->take(20)->skip(20*$showIndex)->get());
+        }
+        return new ProductCollection(Product::where('productname','LIKE','%'.$item.'%')->take(20)->get());
 
 
     }

@@ -25,7 +25,7 @@ Route::get('/viewproduct/{id}', [ShopController::class,'viewProduct'])->name('vi
 
 Route::group([
     'prefix'=>'user',
-    'middleware'=>'auth'
+    'middleware'=>['auth','isUser']
 ],
 function(){
     
@@ -61,15 +61,22 @@ function(){
 }
 );
 
-
+Route::group([
+    'prefix'=>'seller',
+    'middleware'=>['auth','isUser','verified']
+],
+function(){
+    Route::get('/dashboard', function () {
+        return Inertia::render('User/Seller/DashboardSeller');
+    })->name('dashboardseller');    
+}
+);
 
 Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboardadmin');
 
-Route::get('/seller/dashboard', function () {
-    return Inertia::render('User/Seller/Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboardseller');
+
 
 Route::get('/superadmin/dashboard', function () {
     return Inertia::render('SuperAdmin/Dashboard');
