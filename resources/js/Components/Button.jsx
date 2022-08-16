@@ -1,8 +1,9 @@
 import React from 'react';
 
-export default function Button({ type = 'submit', className = '',name, processing, children }) {
+export default function Button({ type = 'submit', className = '',name, processing, children ,onClick}) {
     return (
         <button
+            onClick={onClick}
             name={name}
             type={type}
             className={

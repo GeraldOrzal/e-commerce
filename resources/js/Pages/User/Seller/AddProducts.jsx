@@ -2,7 +2,8 @@ import Button from '@/Components/Button';
 import Input from '@/Components/Input';
 import Authenticated from '@/Layouts/Authenticated'
 import SellerNav from '@/Layouts/SellerNav';
-import React, { useState } from 'react'
+import { useForm } from '@inertiajs/inertia-react';
+import React, { useContext, useState } from 'react'
 import { BsUpload, BsPlusSquare, BsCurrencyDollar } from 'react-icons/bs';
 
 
@@ -28,11 +29,104 @@ function DownloadTemplate() {
 
 
 function UploadFile() {
-    return (<div className='bg-primary p-10'>
-        <div className='bg-secondary h-40 rounded-md flex flex-col items-center space-y-5 p-5'>
-            <BsUpload />
-            <div>Select file or drop your excel file s here.</div>
-            <Button>Select File</Button>
+    const [onDrag, setonDrag] = useState(false)
+    const {setData,errors,data,submit,processing,setError} = useContext(PageData);
+    
+    
+    return (<div className='bg-primary p-10' onDragEnter={()=>setonDrag(true)}
+    
+    >
+        <label>{errors.uploadfile}</label>
+        <form 
+            onSubmit={submit}
+            
+        >
+            <div className='bg-secondary rounded-md flex flex-col items-center space-y-5 p-5 '>
+                {
+                    Object.keys(data.uploadfile).length==0?<>
+                    <BsUpload />
+                <div>Select file or drop your excel file s here.</div>
+                <Button
+                    name="selectfile"
+                    onClick={()=>{
+                        let inputTemp = document.createElement('input');
+                        inputTemp.type="file";
+
+                        inputTemp.addEventListener('change',(e)=>{
+                            if(Object.values(e.target.files).some((a)=>a.type != "text/csv")){
+                                setError("uploadfile","DATA CONTAINS UNSUPPORTED FILES");
+                                return;
+                            }
+                            setData({
+                                ...data,
+                                uploadfile:e.target.files
+                            })
+                            setError("uploadfile","");
+                            
+                        });
+                        console.log(inputTemp);
+                        inputTemp.click();
+                    }}
+                >Select File</Button>
+                    </>:
+                    <>
+                        {
+                            Object.values(data.uploadfile).map((e,index)=><label key={index}>{e.name}</label>)                        
+                        }
+                        <Button
+                            type="submit"
+                            processing={processing}
+                            name="upload"
+                        >UPLOAD</Button>
+                    </>
+                }
+                
+                
+            </div>
+        </form>
+        <div className={`absolute w-full h-full bg-fourthdary top-0 left-0 ${onDrag?"block":"hidden"}`} 
+        
+            onDragEnter={(e)=>{
+                
+                setonDrag(true)
+            }} 
+            onDragOver={(e)=>{
+                e.preventDefault();
+                
+                e.stopPropagation();
+
+               
+            }}
+            
+            onDrop={(e)=>{
+                e.preventDefault();
+                let input = document.createElement('input');
+                input.type = 'file';
+
+                console.log(e.dataTransfer.files);
+                if(Object.values(e.dataTransfer.files).some((a)=>a.type != "text/csv")){
+                    setError("uploadfile","DATA CONTAINS UNSUPPORTED FILES");
+                    setonDrag(false);
+                    return;
+                }
+                
+                setData({
+                    ...data,
+                    uploadfile:e.dataTransfer.files
+                })
+                setError("uploadfile","");
+                
+                setonDrag(false);
+            }}
+            
+            onDragLeave={(e)=>{
+                e.preventDefault();
+                console.log("leave",e)
+                setonDrag(false)
+            }
+        }
+        >
+
         </div>
     </div>);
 }
@@ -223,9 +317,38 @@ function UploadProduct() {
     </div>);
 }
 
-
+const PageData = React.createContext();
 export default function AddProducts(props) {
-    const [current, setcurrent] = useState("dltemplate")
+    const [current, setcurrent] = useState(props.message.message?props.message.message[0]:"dltemplate");
+    
+    const { data, setData, post, processing, errors, setError,reset } = useForm({
+        uploadfile:{}
+    });
+    console.log(props.message);
+    const submit = e =>{
+        if(e.nativeEvent.submitter.name=="selectfile"){
+            e.preventDefault();
+            return;
+        }
+        
+
+        post(route('csvupload'),{
+            onSuccess:()=>{
+                console.log("SUCCESS");
+            }
+        });
+    }
+
+    const value = {
+        errors,
+        data,
+        processing,
+        setError,
+        setData,
+        submit
+    }
+
+    
     return (
         <Authenticated
             auth={props.auth}
@@ -253,9 +376,15 @@ export default function AddProducts(props) {
                             }}
                         >Upload Product</div>
                     </div>
-                    {current == "dltemplate" && <DownloadTemplate />}
-                    {current == "uploadfile" && <UploadFile />}
-                    {current == "uploadproduct" && <UploadProduct />}
+                    <PageData.Provider
+                        value={value}
+                    >
+                        {current == "dltemplate" && <DownloadTemplate />}
+                        {current == "uploadfile" && <UploadFile
+                            
+                        />}
+                        {current == "uploadproduct" && <UploadProduct />}
+                    </PageData.Provider>
                 </div>
             </SellerNav>
         </Authenticated>

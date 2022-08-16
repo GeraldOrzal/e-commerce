@@ -21,6 +21,10 @@ class IsUser
         if($user->roleid!=User::ISUSER){
             throw abort(404,'USER NOT ALLOWED');
         }
+        
+        if(str_contains($request->getRequestUri(),"seller")&&$user->usertypeid==User::ISCUSTOMER){
+            throw abort(404,'USER NOT ALLOWED');
+        }
         return $next($request);
     }
 }

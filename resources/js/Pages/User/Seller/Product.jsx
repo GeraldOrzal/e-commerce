@@ -30,22 +30,22 @@ export default function Product(props) {
                         </Button>
                     </div>
                     <div className='flex flex-row space-x-2'>
-                        <div className='p-5 border-b-2 flex-1'>
+                        <div className='p-5 border-b-2 flex-1 text-center'>
                             All
                         </div>
-                        <div className='p-5 border-b-2 flex-1'>
+                        <div className='p-5 border-b-2 flex-1 text-center'>
                             Published
                         </div>
-                        <div className='p-5 border-b-2 flex-1'>
+                        <div className='p-5 border-b-2 flex-1 text-center'>
                             Sold Out
                         </div >
-                        <div className='p-5 border-b-2 flex-1'>
+                        <div className='p-5 border-b-2 flex-1 text-center'>
                             Reviewing
                         </div>
-                        <div className='p-5 border-b-2 flex-1'>
+                        <div className='p-5 border-b-2 flex-1 text-center'>
                             Violation
                         </div>
-                        <div className='p-5 border-b-2 flex-1'>
+                        <div className='p-5 border-b-2 flex-1 text-center'>
                             Unlisted
                         </div>
                     </div>

@@ -26,8 +26,8 @@ class User extends Authenticatable
     public const ISADMIN = 2;
     public const ISUSER = 3;
 
-    public const ISCUSTOMER = 2;
-    public const ISSELLER = 1;
+    public const ISCUSTOMER = 1;
+    public const ISSELLER = 2;
 
     /**
      * The attributes that should be hidden for serialization.
