@@ -41,20 +41,11 @@ module.exports = {
         },
         colors: {
             primary: '#ffffff',
-            secondary: 'rgb(163 163 163)',
-            thirdary: '#f0f0f0',
-            fourthdary: 'rgba(0, 0, 0, 0.5)',
-            fifthdary: 'rgb(0 0 128)',
-            sixthdary: 'rgb(241 245 249)',
-            danger: '#ff0000',
-            transparent: 'transparent',
-            neutral1: '#2f2d8e',
-            neutral2: '#9c1b1f',
-            neutral3: '#999999',
-            neutral4: '#f0f0f0',
-            colorscheme1: '#0B237A',
-            colorscheme2: '#444EA3',
-            colorscheme3: '#991B1E'
+            secondary: '#0B237A',
+            tertiary: '#444EA3',
+            disable: '#7D7D7D',
+            error: '#991B1E',
+            black: '#121212'
         }
     },
     plugins: [
