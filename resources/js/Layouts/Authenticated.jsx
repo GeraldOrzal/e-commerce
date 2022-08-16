@@ -13,10 +13,8 @@ export default function Authenticated({ auth, header, children }) {
     return (
         <div className="min-h-screen bg-thirdary">
             <nav className="bg-primary">
-                <div className='flex flex-row justify-end space-x-2 p-2 underline'>
-                    <Link
-                        
-                    > About Us</Link>
+                <div className='flex flex-row justify-end space-x-4 underline mr-10'>
+                    <Link> About Us</Link>
                     <Link> Contact Us</Link>
                     <Link> Track Order</Link>
                 </div>
