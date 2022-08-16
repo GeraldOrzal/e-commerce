@@ -14,10 +14,10 @@ export default function AccountManage(props) {
       <AccountNav
         Username={props.auth.user.name}
       >
-        <div className='bg-primary w-4/5 border-1 rounded shadow-xl m-5 divide-y'>
+        <div className='bg-primary w-4/5 border-1 h-screen rounded shadow-xl m-5 divide-y'>
           <div className='p-5 font-bold'>Manage Account</div>
-          <div className='p-5 flex flex-row'>
-            <form className='w-2/3 mt-10'>
+          <div className='p-5 flex flex-row divide-x'>
+            <form className='w-2/3 p-10 mr-10'>
               <div className='grid grid-cols-2 gap-4 justify-end items-center' >
                 <div className='p-2 mt-1'><h2 className='font-semibold text-right'>Username:</h2></div>
                 <Input
@@ -46,8 +46,9 @@ export default function AccountManage(props) {
                 />
                 <div className='p-2 mt-1'><h2 className='font-semibold text-right'>Phone Number:</h2></div>
                 <Input
-                  type="number"
+                  type="tel"
                   name="phonenumber"
+                  pattern="[0-9]{11}"
                   className="mt-1 w-full rounded-tr-xl border"
                   autoComplete="name"
                   isFocused={true}
@@ -63,7 +64,7 @@ export default function AccountManage(props) {
                 </select>
                 <div className='p-2 mt-1'><h2 className='font-semibold text-right'>Date of Birth:</h2></div>
                 <Input
-                  type="text"
+                  type="date"
                   name="birthday"
                   className="mt-1 w-full rounded-tr-xl  border "
                   autoComplete="name"
@@ -73,11 +74,11 @@ export default function AccountManage(props) {
               </div>
               
             </form>
-            <div className='flex flex-col w-1/3 text-center items-center'>
-              <div className=''>
+            <div className='flex flex-col w-1/3 p-5'>
+              <div className='flex flex-col items-center text-center'>
                 <img className='w-32 h-32 mt-10 rounded-full' src='https://cdn-icons-png.flaticon.com/512/1946/1946429.png' />
                 <Button className='mt-2'>Upload Image</Button>
-                <h1>File Size Maximum: 2MB</h1>
+                <h1 className='mt-2'>File Size Maximum: 2MB</h1>
                 <h1>File Extension: JPEG, PNG</h1>
               </div>
             </div>

@@ -12,8 +12,8 @@ export default function AccountPasswordChange(props) {
       <AccountNav
         Username={props.auth.user.name}
       >
-        <div className='w-4/5 border-1 rounded shadow-xl m-5 divide-y bg-primary'>
-          <div className='p-5'>Change Password</div>
+        <div className='w-4/5 border-1 rounded shadow-xl m-5 h-screen divide-y bg-primary'>
+          <div className='p-5 font-bold'>Change Password</div>
           <div className='p-5'>
             <form>
               <div className='flex flex-col'>
