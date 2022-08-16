@@ -7,7 +7,7 @@ import { Link } from '@inertiajs/inertia-react';
 import Footer from '@/Components/Footer';
 import SearchBar from '@/Components/SearchBar';
 export default function Authenticated({ auth, header, children }) {
-    console.log(auth);
+    
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (

@@ -3,6 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Customer\ShopController;
+use App\Http\Controllers\User\Seller\ProductController;
+use App\Models\Product;
 use Inertia\Inertia;
 
 /*
@@ -42,6 +44,32 @@ function(){
     Route::get('/checkout', fn()=>Inertia::render('User/Customer/Checkout'))->name('checkout');
 
     Route::get('/thankyou', fn()=>Inertia::render('User/Customer/Thankyou'))->name('thankyou');
+
+    Route::prefix('seller')->group(
+        function(){
+            Route::get('/dashboard', function () {
+                return Inertia::render('User/Seller/DashboardSeller');
+            })->name('dashboardseller');    
+        
+            Route::get('/product', fn()=>Inertia::render('User/Seller/Product'))->name('product');
+        
+            Route::get('/addproduct', [ProductController::class,'create'])->name('addproduct');
+        
+            Route::put('/addproduct', [ProductController::class,'store'])->name('csvupload');
+            
+            Route::get('/shipment', fn()=>Inertia::render('User/Seller/Shipment'))->name('shipment');
+        
+            Route::get('/orders', fn()=>Inertia::render('User/Seller/Order'))->name('orders');
+        
+            Route::get('/sale', fn()=>Inertia::render('User/Seller/Sale'))->name('sale');
+        
+            Route::get('/review', fn()=>Inertia::render('User/Seller/Review'))->name('review');
+        
+            Route::get('/inbox', fn()=>Inertia::render('User/Seller/Inbox'))->name('inbox');
+        }
+
+    );
+    
     
 
     Route::prefix('account')->group(function(){
@@ -58,19 +86,11 @@ function(){
         Route::get('/wishlist', fn()=>Inertia::render('User/Customer/Account/AccountWishList'))->name('wishlist');
     
     });
+
 }
 );
 
-Route::group([
-    'prefix'=>'seller',
-    'middleware'=>['auth','isUser','verified']
-],
-function(){
-    Route::get('/dashboard', function () {
-        return Inertia::render('User/Seller/DashboardSeller');
-    })->name('dashboardseller');    
-}
-);
+
 
 Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Dashboard');
