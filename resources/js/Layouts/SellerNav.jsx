@@ -3,8 +3,8 @@ import { Head,Link } from '@inertiajs/inertia-react';
 import { BsArrowRight, BsArrowLeft,BsBag } from 'react-icons/bs';
 export default function SellerNav(props) {
   return (
-   <div className='flex flex-row'>
-    <div className='flex flex-col bg-primary p-2 w-1/5 pl-10 space-y-5'>
+   <div className='flex flex-row '>
+    <div className='flex flex-col p-2 w-1/5 pl-10 space-y-10 '>
         <Link href={route('dashboardseller')} 
           
         >

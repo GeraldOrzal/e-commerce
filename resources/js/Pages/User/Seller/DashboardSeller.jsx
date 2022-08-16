@@ -44,21 +44,21 @@ export default function Dashboard(props) {
                 </div>
 
                 <div className='grid grid-cols-3 gap-x-5 justify-center'>
-                    <div className='flex flex-col bg-primary'>
-                        <div className='flex flex-row'>
+                    <div className='flex flex-col bg-primary shadow p-5 rounded-md'>
+                        <div className='flex flex-row space-x-auto'>
                             <h1>Chats</h1>
                             <Link>See all</Link>
                         </div>
-                        <div className='flex flex-row'>
-                            <img />
+                        <div className='flex flex-row space-x-2'>
+                            <img className="w-5 h-5 rounded-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80"/>
                             <h3>Gerald Orzal</h3>
                         </div>
                     </div>
-                    <div className='flex flex-col bg-primary'>
+                    <div className='flex flex-col bg-primary shadow p-5 rounded-md'>
                         <h1>Generated Income</h1>
                         
                     </div>
-                    <div className='flex flex-col bg-primary'>
+                    <div className='flex flex-col bg-primary shadow p-5 rounded-md'>
                         <h1>Business Insight</h1>
                     </div>
 

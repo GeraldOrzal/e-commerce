@@ -14,10 +14,10 @@ export default function Product(props) {
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Products</h2>}
         >
             <SellerNav>
-                <div className=' w-full bg-primary'>
+                <div className=' flex-1 bg-primary p-2 shadow-md m-5'>
                     <div className='space-x-2 flex flex-row items-center w-full'>
                         <label>Product name:</label>
-                        <Input className='flex-1'/>
+                        <Input className='flex-1 '/>
                         <label>Category:</label>
                         <select className='flex-1'>
                             <option>Default</option>
@@ -64,16 +64,16 @@ export default function Product(props) {
                             </Button>
                         </div>
                     </div>
-                    <table className='table-auto table-border'>
-                        <thead>
-                            <tr>
+                    <table className='table-auto w-full '>
+                        <thead className='border'>
+                            <tr >
                                 <th><Checkbox/></th>
-                                <th>Products</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Stock</th>
-                                <th>Sale</th>
-                                <th>Action</th>
+                                <th >Products</th>
+                                <th >Category</th>
+                                <th >Price</th>
+                                <th >Stock</th>
+                                <th >Sale</th>
+                                <th >Action</th>
                             </tr>
                         </thead>
                         <tbody>

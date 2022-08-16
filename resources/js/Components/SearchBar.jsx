@@ -64,8 +64,8 @@ export default function SearchBar(props) {
         }
         {props.auth.user?.usertypeid!=2&&<div className='flex flex-row items-center w-full justify-center'>
                         <div className='sm:w-3/5 xs:w-full relative'>
-                            <input ref={inputRef} type='text' className='bg-thirdary pl-5 outline-0 rounded-bl-xl p-2 w-full' placeholder='Search shop / product name' onChange={onEnterText} />
-                            <div className={`absolute bg-primary p-5 w-full ${results.data?'block':'hidden'} flex flex-col z-10`}>
+                            <input ref={inputRef} type='text' className='bg-black bg-opacity-10 pl-5 outline-0 rounded-bl-xl p-2 w-full' placeholder='Search shop / product name' onChange={onEnterText} />
+                            <div className={`absolute bg-primary p-5 w-full ${results.data?'block':'hidden'} flex flex-col z-10 shadow`} >
                                    {results.data?.length!=0?<>
                                     {results.data?.map((data,index)=><Link key={index} href={route('viewproduct',{id:data.productid})}>{data.productname}</Link>)}
                                     <button onClick={showMore}
@@ -75,7 +75,7 @@ export default function SearchBar(props) {
                             </div>
                         </div>
 
-                        <button type='submit' className={`bg-thirdary rounded-tr-xl pr-5 px-2 py-2.5 text-fourthdary ${results.isLoading?'disabled':""}`}> {results.isLoading?<AiOutlineLoading  className='text-xl animate-spin'/>:<GoSearch className='text-xl' />}</button>
+                        <button type='submit' className={`bg-black bg-opacity-10 rounded-tr-xl pr-5 px-2 py-2.5 text-fourthdary ${results.isLoading?'disabled':""}`}> {results.isLoading?<AiOutlineLoading  className='text-xl animate-spin'/>:<GoSearch className='text-xl' />}</button>
         </div>}
         
                     <nav className='flex flex-row items-center space-x-5 w-2/5 sm:flex xs:hidden'>

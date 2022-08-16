@@ -44,7 +44,7 @@ export default function Register() {
             </h1>
             <h2 className='text-center'>Let's make your account.</h2>    
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="text"
                         name="name"
@@ -58,7 +58,7 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsEnvelope className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsEnvelope className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="email"
                         name="email"
@@ -71,7 +71,7 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="password"
                         name="password"
@@ -84,7 +84,7 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="password"
                         name="password_confirmation"
@@ -96,7 +96,7 @@ export default function Register() {
                     />
                 </div>
                 <div className="flex items-center justify-between mt-4">
-                    <Link href={route('login')} className="underline text-sm text-danger">
+                    <Link href={route('login')} className="underline text-sm text-error font-bold">
                         Already registered?
                     </Link>
                     <Button className="ml-4" processing={processing}>

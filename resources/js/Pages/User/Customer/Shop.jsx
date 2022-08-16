@@ -60,9 +60,10 @@ export default function Shop(props) {
             </div>
             <Slider/>
             <hr></hr>
-            <div className='flex flex-row'>
+            <div className='flex flex-row font-bold '>
               Categories
               <button 
+              className='ml-5'
                 onClick={()=>setfilterState({
                   ...filterState,
                   category:{
@@ -78,6 +79,7 @@ export default function Shop(props) {
               {
                 props.categories.map((a,index)=><li
                   key={index}
+                  className='text-black'
                   ><Checkbox
                   defaultChecked={route().params.categories&&route().params.categories.includes(a.description)?true:false}
                  name="category"

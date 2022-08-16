@@ -60,7 +60,7 @@ export default function Welcome(props) {
                         md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3
                         xs:col-start-1 xs:col-end-4 xs:row-start-1 xs:row-end-2'>
                             <Link href={route('shop',{categories:props.categories[0].description,page:1})}>
-                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-5xl sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black bg-opacity-20 font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-5xl sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
                                 {props.categories[0].description}
                             </div>
                             
@@ -71,7 +71,7 @@ export default function Welcome(props) {
                         md:col-start-3 md:col-end-5
                         xs:col-start-4 xs:col-end-7'>
                             <Link href={route('shop',{categories:props.categories[1].description,page:1})}>
-                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black bg-opacity-20 font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
                                 {props.categories[1].description}
                             </div>
                             </Link>
@@ -82,7 +82,7 @@ export default function Welcome(props) {
                         md:col-start-5 md:col-end-7
                         xs:col-start-1 xs:col-end-4'>
                             <Link href={route('shop',{categories:props.categories[2].description,page:1})}>
-                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black bg-opacity-20 font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
                                 {props.categories[2].description}
                             </div>
                             
@@ -93,7 +93,7 @@ export default function Welcome(props) {
                         xl:col-start-3 xl:col-end-5
                         md:col-start-3 md:col-end-7
                         xs:col-start-4 xs:col-end-7'>
-                            <Link href={route('shop',{categories:props.categories[3].description,page:1})}><div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                            <Link href={route('shop',{categories:props.categories[3].description,page:1})}><div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black bg-opacity-20 font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
                                 {props.categories[3].description}
                             </div></Link>
 
@@ -102,7 +102,7 @@ export default function Welcome(props) {
                         xl:col-start-5 xl:col-end-6
                         xs:col-start-1 xs:col-end-4'>
                             <Link href={route('shop',{categories:props.categories[4].description,page:1})}>
-                                <div className={`transition ease-in-out flex justify-center items-center rounded-md bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full xl:text-2xl sm:text-3xl xs:text-2xl ${hoverCategory ? 'block' : 'hidden'}`}>
+                                <div className={`transition ease-in-out flex justify-center items-center rounded-md bg-black bg-opacity-20 font-bold text-primary absolute top-0 left-0 w-full h-full xl:text-2xl sm:text-3xl xs:text-2xl ${hoverCategory ? 'block' : 'hidden'}`}>
                                     {props.categories[4].description}
                                 </div>
                             </Link>
@@ -112,8 +112,8 @@ export default function Welcome(props) {
                         xl:col-start-6 xl:col-end-7
                         xs:col-start-4 xs:col-end-7'>
                             <Link href={route('shop',{categories:props.categories[5].description,page:1})}>
-                                <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-2xl sm:text-3xl xs:text-2xl' :
-                                    'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                                <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-black bg-opacity-20 font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-2xl sm:text-3xl xs:text-2xl' :
+                                    'text-center bg-black bg-opacity-20 font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
                                     {props.categories[5].description}
                                 </div>
                             

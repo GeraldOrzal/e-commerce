@@ -46,9 +46,9 @@ class AuthenticatedSessionController extends Controller
                 break;
             default:
                 if($user->usertypeid==User::ISSELLER){
-                    return redirect()->intended(RouteServiceProvider::HOMECUSTOMER); 
-                }else{
                     return redirect()->intended(RouteServiceProvider::HOMESELLER); 
+                }else{
+                    return redirect()->intended(RouteServiceProvider::HOMECUSTOMER); 
                 }
                 
         }

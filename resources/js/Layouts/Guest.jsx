@@ -7,7 +7,7 @@ import Footer from '@/Components/Footer';
 export default function Guest({ children }) {
 
     return (
-        <div className="flex flex-col sm:justify-center items-center sm:pt-0 bg-gradient-to-r from-neutral1 to-neutral2">
+        <div className="flex flex-col sm:justify-center items-center sm:pt-0 bg-gradient-to-r from-secondary to-error">
             <div className='bg-primary flex flex-row items-center w-full p-2
             md:justify-between
             sm:justify-between
@@ -107,7 +107,8 @@ export default function Guest({ children }) {
             xs:max-w-md xs:rounded-0 xs:mt-0 xs:pt-0">
                 {children}
             </div>
-            <div className='flex flex-row justify-center items-center sm:text-primary sm:bg-transparent sm:w-full xs:text-default xs:bg-primary xs:w-full p-5 sm:pt-5 xs:pt-0 space-x-1'>
+            
+            <div className='flex flex-row justify-center items-center sm:text-black sm:bg-transparent sm:w-full xs:text-black xs:bg-primary xs:w-full p-5 sm:pt-5 xs:pt-0 space-x-1'>
                 <Link> Privacy Policy</Link>
                 <label>|</label>
                 <Link>Terms and Condition</Link>
