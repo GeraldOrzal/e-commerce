@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import ProductCard from '@/Components/ProductCard';
-import { GoSearch } from 'react-icons/go';
 import { MdFeaturedPlayList, MdCategory } from 'react-icons/md';
 import { Link, Head } from '@inertiajs/inertia-react';
 import SearchBar from '@/Components/SearchBar';
+import Authenticated from '@/Layouts/Authenticated';
+import ads from '@/images/ads.png';
+import Button from '@/Components/Button';
+import Footer from '@/Components/Footer';
 
 
 export default function Welcome(props) {
@@ -13,11 +16,11 @@ export default function Welcome(props) {
     return (
         <>
             <Head title="Welcome" />
-            <div className='container p-10 pt-5 mx-auto '>
-                <header className='container mx-auto mb-2 flex flex-row justify-center items-center'>
-                  <SearchBar
-                    auth={props.auth}
-                  />
+            <div className='max-w-7xl mx-auto'>
+                <header className='max-w-7xl w-full mx-auto p-2 mb-2'>
+                    <SearchBar
+                        auth={props.auth}
+                    />
                 </header>
                 <main className='pt-0
                 md:p-8
@@ -27,17 +30,18 @@ export default function Welcome(props) {
                     md:flex-row
                     sm:flex-col
                     xs:flex-col'>
-                        <div className='bg-primary shadow-lg p-32 py-20 text-center text-fourthdary
-                        md:w-3/6 md:mr-2 md:mb-0 
-                        sm:w-full sm:mr-0 sm:mb-2
-                        xs:w-full xs:mr-0 xs:mb-2'>Ads</div>
-                        <div className='bg-primary shadow-lg p-32 py-20 text-center text-fourthdary
-                        md:w-3/6
-                        sm:w-full
-                        xs:w-full'>Events</div>
+                        <img alt='ads' className='shadow
+                         md:w-1/2 md:mr-2 md:mb-0 
+                         xs:w-4/5 xs:mr-0 xs:mb-2' src='' />
+                        <img alt='ads' className='shadow
+                         md:w-1/2 md:mr-2 md:mb-0 
+                         xs:w-4/5 xs:mr-0 xs:mb-2' src='' />
                     </div>
                     <div className='max-w-7xl mx-auto'>
-                        <div className='flex items-center text-lg text-fourthdary font-bold pl-2 mb-2'><MdFeaturedPlayList className='text-neutral1 mr-2' />Featured Products</div>
+                        <div className='flex items-center font-bold pl-2 mb-2
+                        lg:text-lg
+                        sm:text-base
+                        xs:text-sm'><MdFeaturedPlayList className='text-neutral1 mr-2' />Featured Products</div>
                     </div>
                     <div className='max-w-7xl mx-auto flex flex-row items-center space-x-2 overflow-x-scroll p-5 mb-7'>
                         {
@@ -51,66 +55,90 @@ export default function Welcome(props) {
                         }
                     </div>
                     <div className='max-w-7xl mx-auto'>
-                        <div className='flex items-center text-lg text-fourthdary font-bold pl-2 mb-2'><MdCategory className='text-neutral1 mr-2' />Shop by Categories</div>
+                        <div className='flex items-center font-bold pl-2 mb-2
+                          lg:text-lg
+                          sm:text-base
+                          xs:text-sm'><MdCategory className='text-neutral1 mr-2' />Shop by Categories</div>
                     </div>
                     <div className='max-w-7xl mx-auto grid grid-cols-6 auto-rows-max gap-2 mb-10
                     grid-rows-2
                     'onMouseEnter={() => sethoverCategory(true)} onMouseLeave={() => sethoverCategory(false)}>
-                        <div className='p-20 shadow-lg bg-category0 bg-no-repeat bg-cover bg-center rounded-md relative
-                        md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3
-                        xs:col-start-1 xs:col-end-4 xs:row-start-1 xs:row-end-2'>
-                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-5xl sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                        <div className='shadow bg-category0 bg-no-repeat bg-cover bg-center rounded-md relative
+                        md:p-20 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3
+                        xs:p-14 xs:col-start-1 xs:col-end-4 xs:row-start-1 xs:row-end-2'>
+                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-5xl md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[0].description}
                             </div>
                         </div>
-                        <div className='p-20 shadow-lg bg-category1 bg-no-repeat bg-cover bg-center rounded-md relative 
-                        md:col-start-3 md:col-end-5
-                        xs:col-start-4 xs:col-end-7'>
-                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                        <div className='shadow bg-category1 bg-no-repeat bg-cover bg-center rounded-md relative 
+                        md:p-20 md:col-start-3 md:col-end-5
+                        xs:p-14 xs:col-start-4 xs:col-end-7'>
+                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[1].description}
                             </div>
 
                         </div>
-                        <div className='p-20 shadow-lg bg-category2 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className='shadow bg-category2 bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-5 xl:col-end-7
-                        md:col-start-5 md:col-end-7
-                        xs:col-start-1 xs:col-end-4'>
-                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                        md:p-20 md:col-start-5 md:col-end-7
+                        xs:p-14 xs:col-start-1 xs:col-end-4'>
+                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[2].description}
                             </div>
 
                         </div>
-                        <div className='p-20 shadow-lg bg-category3 bg-no-repeat bg-cover bg-center rounded-md bg-neutral1 relative
+                        <div className='shadow bg-category3 bg-no-repeat bg-cover bg-center rounded-md bg-neutral1 relative
                         xl:col-start-3 xl:col-end-5
-                        md:col-start-3 md:col-end-7
-                        xs:col-start-4 xs:col-end-7'>
-                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block sm:text-3xl xs:text-2xl' : 'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                        md:p-20 md:col-start-3 md:col-end-7
+                        xs:p-14 xs:col-start-4 xs:col-end-7'>
+                            <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[3].description}
                             </div>
 
                         </div>
-                        <div className='p-20 shadow-lg bg-category4 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className='shadow bg-category4 bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-5 xl:col-end-6
-                        xs:col-start-1 xs:col-end-4'>
-                            <div className={`transition ease-in-out flex justify-center items-center rounded-md bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full xl:text-2xl sm:text-3xl xs:text-2xl ${hoverCategory ? 'block' : 'hidden'}`}>
+                        md:p-20
+                        xs:p-14 xs:col-start-1 xs:col-end-4'>
+                            <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block lg:text-2xl md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[4].description}
                             </div>
 
                         </div>
-                        <div className='p-20 shadow-lg bg-category5 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className='shadow bg-category5 bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-6 xl:col-end-7
-                        xs:col-start-4 xs:col-end-7'>
-                            <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-2xl sm:text-3xl xs:text-2xl' :
-                                'text-center bg-fourthdary font-bold text-5xl absolute top-0 left-0 w-full h-0 hidden'}>
+                        md:p-20
+                        xs:p-14 xs:col-start-4 xs:col-end-7'>
+                            <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-fourthdary font-bold text-primary absolute top-0 left-0 w-full h-full block lg:text-2xl md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[5].description}
                             </div>
 
                         </div>
                     </div>
-                    <div className='max-w-7xl mx-auto w-full bg-primary p-52 shadow-lg'>
-
+                    <div className='max-w-7xl mx-auto w-full shadow-lg bg-f21 bg-no-repeat bg-cover bg-center 
+                    sm:h-96 
+                    xs:h-72'>
+                        <div className='w-full h-full flex flex-col justify-center items-center'>
+                            <h1 className='text-primary font-bold mb-6
+                            md:text-5xl 
+                            sm:text-4xl 
+                            xs:text-3xl'>Forever 21</h1>
+                            <h2 className='text-primary mb-1
+                            md:text-2xl 
+                            sm:text-xl
+                            xs:text-lg'>Big Fashion Festival</h2>
+                            <h3 className='text-primary mb-6
+                             md:text-2xl 
+                             sm:text-xl
+                             xs:text-lg'>70% - 80% off</h3>
+                            <Button className='bg-transparent border border-primary                              
+                             md:text-xl 
+                             sm:text-base
+                             xs:text-xs'>Explore</Button>
+                        </div>
                     </div>
                 </main>
+                <Footer />
             </div>
         </>
     );

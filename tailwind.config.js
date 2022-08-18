@@ -34,6 +34,8 @@ module.exports = {
                 category4:'url("/resources/js/images/hygiene.jpeg")',
                 category5:'url("/resources/js/images/medicines.webp")',
                 sample:'url("https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80")',
+                ads:'url("/resources/js/images/ads.png")',
+                f21:'url("/resources/js/images/forever-21.png")',
             },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
@@ -52,6 +54,8 @@ module.exports = {
             neutral2: '#9c1b1f',
             neutral3: '#999999',
             neutral4: '#f0f0f0',
+            neutral5: '#c6c6c6',
+            neutral6: 'gold',
             colorscheme1: '#0B237A',
             colorscheme2: '#444EA3',
             colorscheme3: '#991B1E'

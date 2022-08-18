@@ -7,35 +7,34 @@ import { Link } from '@inertiajs/inertia-react';
 import Footer from '@/Components/Footer';
 import SearchBar from '@/Components/SearchBar';
 export default function Authenticated({ auth, header, children }) {
-    console.log(auth);
+    console.log(children);
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        <div className="min-h-screen bg-thirdary">
-            <nav className="bg-primary">
-                <div className='flex flex-row justify-end space-x-2 p-2 underline'>
-                    <Link
-                        
-                    > About Us</Link>
+        <div className="bg-primary">
+            <nav className="max-w-7xl w-full mx-auto bg-primary">
+                <div className='mx-auto flex flex-row space-x-4 underline py-2
+                  md:text-base md:justify-end md:px-4
+                  xs:text-sm xs:justify-center xs:px-0'>
+                    <Link> About Us</Link>
                     <Link> Contact Us</Link>
                     <Link> Track Order</Link>
                 </div>
-                <header className='container-fluid mb-2 flex flex-row justify-center items-center space-x-20 px-5'>
-                  <SearchBar
-                    auth={auth}
-                  />
-                </header>  
-              
-            </nav>
+                <header className='max-w-7xl w-full flex flex-row justify-center items-center md:px-5 xs:px-1'>
+                    <SearchBar
+                        auth={auth}
+                    />
+                </header>
 
+            </nav>
             {header && (
                 <header >
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
+                    <div className="max-w-7xl w-full mx-auto bg-primary py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
 
-            <main>{children}</main>
-            <Footer/>
+            <main className='bg-primary'>{children}</main>
+            <Footer />
         </div>
     );
 }

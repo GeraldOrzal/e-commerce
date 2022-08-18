@@ -44,12 +44,12 @@ export default function Register() {
             </h1>
             <h2 className='text-center'>Let's make your account.</h2>    
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-neutral4 p-2 rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="text"
                         name="name"
                         value={data.name}
-                        className="mt-1 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="name"
                         isFocused={true}
                         handleChange={onHandleChange}
@@ -58,12 +58,12 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsEnvelope className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-neutral4 p-2 rounded-bl-xl'><BsEnvelope className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="username"
                         handleChange={onHandleChange}
                         required
@@ -71,12 +71,12 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mt-1 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-neutral4 p-2 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="new-password"
                         handleChange={onHandleChange}
                         required

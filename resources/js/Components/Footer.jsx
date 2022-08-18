@@ -10,7 +10,7 @@ export default function Footer() {
     //                 <ApplicationLogoFooter className="self-center"/>
                     
 
-    <footer className='bg-primary w-full flex flex-col p-5'>
+    <footer className='bg-primary max-w-8xl mx-auto w-full flex flex-col p-5'>
                 <div className='flex 
                 md:flex-row md:justify-between md:items-start md:text-justify md:px-10 
                 sm:flex-col sm:justify-center sm:items-center sm:text-center sm:px-0

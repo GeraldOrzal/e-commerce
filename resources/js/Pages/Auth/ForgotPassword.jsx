@@ -36,12 +36,12 @@ export default function ForgotPassword({ status }) {
 
             <form onSubmit={submit}>
             <div className='flex flex-row items-center'>
-                <div className='bg-neutral4 mt-1 p-2 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                <div className='bg-neutral4 p-2 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                 <Input
                     type="text"
                     name="email"
                     value={data.email}
-                    className="mt-1 block w-full rounded-tr-xl"
+                    className=""
                     isFocused={true}
                     handleChange={onHandleChange}
                     placeholder='Enter Email'

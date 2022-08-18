@@ -51,7 +51,7 @@ export default function Login({ status, canResetPassword }) {
                         type="text"
                         name="email"
                         value={data.email}
-                        className="w-full rounded-tr-xl"
+                        className=""
                         autoComplete="username"
                         isFocused={true}
                         handleChange={onHandleChange}
@@ -60,13 +60,13 @@ export default function Login({ status, canResetPassword }) {
                     />
                 </div>
 
-                <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-neutral4 p-2 mb-3 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                <div className="mt-4 mb-3 flex flex-row items-center">
+                    <div className='bg-neutral4 p-2 rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
                     <Input
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mb-3 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="current-password"
                         handleChange={onHandleChange}
                         required
