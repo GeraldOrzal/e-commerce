@@ -15,7 +15,7 @@ function HeaderUser({auth}) {
                 <Link href="#">Contact Us</Link>
             </section>
 
-            <section className="container pb-5 mx-auto mb-2 flex flex-row justify-center items-center">
+            <section className="w-full pb-5 mx-auto mb-2 flex flex-row justify-center items-center">
                 <Link className="mr-20" href="/">
                     <ApplicationLogo />
                 </Link>

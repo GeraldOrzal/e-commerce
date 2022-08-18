@@ -49,7 +49,7 @@ export default function Register() {
                         type="text"
                         name="name"
                         value={data.name}
-                        className="mt-1 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="name"
                         isFocused={true}
                         handleChange={onHandleChange}
@@ -63,7 +63,7 @@ export default function Register() {
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="username"
                         handleChange={onHandleChange}
                         required
@@ -76,7 +76,7 @@ export default function Register() {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="new-password"
                         handleChange={onHandleChange}
                         required

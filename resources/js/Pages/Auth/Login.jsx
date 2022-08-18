@@ -66,7 +66,7 @@ export default function Login({ status, canResetPassword }) {
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mb-3 w-full rounded-tr-xl"
+                        className=""
                         autoComplete="current-password"
                         handleChange={onHandleChange}
                         required

@@ -4,8 +4,9 @@ import Authenticated from '@/Layouts/Authenticated'
 import { Link } from '@inertiajs/inertia-react';
 import React,{useState} from 'react'
 import Checkbox from '@/Components/Checkbox';
-import SearchBar from '@/Components/SearchBar';
-import { IoIosArrowDown,IoIosArrowUp,IoMdOptions } from 'react-icons/io';
+import { IoIosArrowDown,IoIosArrowUp } from 'react-icons/io';
+import { MdArrowForwardIos } from 'react-icons/md';
+import { FiFilter } from 'react-icons/fi';
 export default function Shop(props) {
   const [products, setproducts] = useState(props.allProducts.data)
   const [filterState, setfilterState] = useState({
@@ -23,27 +24,32 @@ export default function Shop(props) {
       isOpen:false,
     },
   })
-  function RenderButtonBoxes(){
-    let temp = []
-    for (let index = !props.allProducts.current_page - 3 <= 0 ?props.allProducts.current_page - 3:1 ;  !props.allProducts.current_page + 3 > props.allProducts.total ? props.allProducts.current_page + 3:props.allProducts.total; index++) {
-      const element = <Link className='border rounded-sm p-2' href={route('shop',{page:index})}>{index}</Link>;
-      temp.push(element);
-    }
-    return temp;
-  }
-  console.log(props.allProducts);
   return (
     <Authenticated
       auth={props.auth}
       errors={props.errors}
       header={props.isShowResults?<>
           <h2 className="text-xl">{`Show results ${props.resultdata} products`}</h2>
-      </>:<><Link href={route('index')} className="text-xl mr-2">Home</Link>{">"}<label className="ml-2 text-xl">All Products</label></>}
+      </>:<><div className='flex flex-row items-center'>
+      <Link href={route('index')} className="text-secondary mr-2
+           lg:text-xl
+           md:text-lg
+           xs:text-base">Home</Link>
+      <MdArrowForwardIos className='text-secondary'/>
+      <label className="ml-2 text-secondary
+         lg:text-xl
+         md:text-lg
+         xs:text-base">All Products</label>
+        </div></>}
     >
-      <div className='flex flex-row justify-end px-20 space-x-2 m-2'>
-        <div className='relative text-secondary '>
+      <div className='bg-primary flex flex-row justify-end py-2  space-x-2
+      lg:px-14
+      xs:px-6'>
+        <div className='relative'>
           <button
-            className='flex flex-row items-center'
+            className='flex flex-row items-center
+            lg:text-base
+            xs:text-sm'
             onClick={()=>setfilterState({
               ...filterState,
               isOpen:!filterState.isOpen,
@@ -52,15 +58,21 @@ export default function Shop(props) {
                 isOpen:false
               }
             })}
-          >Filters <IoMdOptions className='ml-2'/></button>
-          <div className={`w-60 right-0 flex flex-col absolute bg-primary p-5 shadow rounded ${filterState.isOpen?"block":"hidden"} text-secondary z-10` }>
-            <div className='flex flex-row '>
+          >Filters <FiFilter className='ml-2'/></button>
+          <div className={`w-60 right-0 flex flex-col absolute bg-primary p-5 shadow-lg rounded ${filterState.isOpen?"block":"hidden"} text-secondary z-10` }>
+            <div className='flex flex-row bg-primary justify-between
+             lg:text-base
+             xs:text-sm'>
               Filters
-              <Link href={route("shop",{page:1})}>Clear all</Link>
+              <Link href={route("shop")} className='ml-1
+               lg:text-base
+               xs:text-sm'>Clear all</Link>
             </div>
             <Slider/>
             <hr></hr>
-            <div className='flex flex-row font-bold '>
+            <div className='flex flex-row
+             lg:text-base
+             xs:text-sm'>
               Categories
               <button 
               className='ml-5'
@@ -75,7 +87,9 @@ export default function Shop(props) {
                 { filterState.category.isOpen?<IoIosArrowUp/>:<IoIosArrowDown/>}
               </button>
             </div>
-            <ul className={`${filterState.category.isOpen?"block":"hidden"}`}>
+            <ul className={`${filterState.category.isOpen?"block":"hidden"}
+             lg:text-base
+             xs:text-sm`}>
               {
                 props.categories.map((a,index)=><li
                   key={index}
@@ -111,7 +125,9 @@ export default function Shop(props) {
               
             </ul>
             <hr></hr>
-            <div className='flex flex-row'>
+            <div className='flex flex-row
+             lg:text-base
+             xs:text-sm'>
               Color
               <button
               onClick={()=>setfilterState({
@@ -135,7 +151,7 @@ export default function Shop(props) {
             <hr></hr> */}
           </div>
         </div>
-        <div className='relative font-medium'>
+        <div className='relative font-md'>
         <button
             onClick={()=>setfilterState({
               ...filterState,
@@ -145,11 +161,17 @@ export default function Shop(props) {
                 isOpen:!filterState.sortby.isOpen
               }
             })}
-            className='flex flex-row'
+            className='flex flex-row items-center
+            lg:text-base
+            xs:text-sm'
           >Sort By <IoIosArrowDown className='ml-2'/> </button>
-          <div className={`w-60 right-0 flex flex-col absolute bg-primary p-5 shadow rounded ${filterState.sortby.isOpen?"block":"hidden"} z-10`}>
+          <div className={`w-60 right-0 flex flex-col absolute bg-primary p-5 shadow-lg rounded ${filterState.sortby.isOpen?"block":"hidden"} z-10
+           lg:text-base
+           xs:text-sm`}>
             <Link 
-            className={`${route().params.sortby&&route().params.sortby.includes('popularity')?"text-secondary":""}`}
+            className={`${route().params.sortby&&route().params.sortby.includes('popularity')?"text-secondary":""}
+            lg:text-base
+            xs:text-sm`}
             href={route('shop',{
               ...route().params,
               sortby:
@@ -159,7 +181,9 @@ export default function Shop(props) {
               :'popularity'
             })}>Popularity</Link>
             <Link
-            className={`${route().params.sortby&&route().params.sortby.includes('ascending')?"text-secondary":""}`}
+            className={`${route().params.sortby&&route().params.sortby.includes('ascending')?"text-secondary":""}
+            lg:text-base
+            xs:text-sm`}
               href={route('shop',{
                 ...route().params,
                 sortby:route().params.sortby?
@@ -196,7 +220,9 @@ export default function Shop(props) {
           </div>
         </div>
       </div>
-      <div className='container-fluid grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-rows-6 place-items-center gap-y-5 p-5 xs:grid-cols-1'>
+      <div className='max-w-7xl mx-auto bg-primary w-full flex flex-row flex-wrap justify-center items-center auto-rows-auto gap-2
+      lg:p-6 lg:pt-0
+      xs:p-0 xs:pt-0'>
         {
           products.map(({ productid, productname, rating, price }) => <ProductCard
             productid={productid}

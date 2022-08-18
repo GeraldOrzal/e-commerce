@@ -92,15 +92,14 @@ export default function Cart(props) {
     <Authenticated
       auth={props.auth}
       errors={props.errors}
-
     >
       <form
-      onSubmit={submit}
-        className='flex flex-col items-center'
+        onSubmit={submit}
+        className='flex flex-col items-center w-full mx-auto'
       >
         <div className='flex flex-row justify-end items-center'>
-          <h2 className='text-xl font-bold'>My Orders</h2>
-          <label className='text-sm ml-2'>(2 Items)</label>
+          <h2 className='text-xl font-bold py-2'>My Orders</h2>
+          <label className='text-sm ml-2 py-2'>(2 Items)</label>
         </div>
         <div>
           
