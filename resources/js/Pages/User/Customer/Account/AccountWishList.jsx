@@ -3,6 +3,7 @@ import Authenticated from '@/Layouts/Authenticated'
 import AccountNav from '@/Layouts/AccountNav'
 import Button from '@/Components/Button'
 export default function AccountWishList(props) {
+console.log(props.cart)
   return (
     <Authenticated
     auth={props.auth}

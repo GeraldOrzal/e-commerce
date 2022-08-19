@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Button from '@/Components/Button';
 import { GoSearch } from 'react-icons/go';
@@ -9,15 +9,18 @@ import Dropdown from './Dropdown';
 import { BsCart } from 'react-icons/bs';
 import {FiBell} from 'react-icons/fi'
 export default function SearchBar(props) {
-    const [results, setresults] = useState({
+    const initial = {
         data:null,
         isLoading:false,
         showIndex:0,
-    })
+        islast:false
+    }
+    const [results, setresults] = useState(initial)
     const inputRef = React.createRef();
     const onEnterText = async (data)=>{
         if(data.target.value==""){
             setresults({
+                islast:false,
                 data:null,
                 showIndex:0,
                 isLoading:false
@@ -38,22 +41,35 @@ export default function SearchBar(props) {
         
         setresults({
             ...results,
+            islast:resdata.data.length<10?true:false,
             data:resdata.data,
             isLoading:false
         });
     };
-
+    useEffect(() => {
+      
+    
+      return () => {
+        setresults(initial)
+      }
+    }, [])
+    
 
     const showMore = async()=> {
         
         const  resdata = await (await fetch(`/api/products?product=${inputRef.current.value}&show=${results.showIndex + 1}`)).json();
+
+        
         
         setresults({
+            islast:resdata.data.length==0?true:false,
             data:[...results.data,...resdata.data],
             isLoading:false,
             showIndex: results.showIndex+1
         });
     };
+
+    
   return (
     <>
         <Link href={props.auth.user ? route('shop',{page:1}):route("index")} className="mr-20 sm:block xs:hidden">
@@ -68,8 +84,11 @@ export default function SearchBar(props) {
                             <div className={`absolute bg-primary p-5 w-full ${results.data?'block':'hidden'} flex flex-col z-10 shadow`} >
                                    {results.data?.length!=0?<>
                                     {results.data?.map((data,index)=><Link key={index} href={route('viewproduct',{id:data.productid})}>{data.productname}</Link>)}
-                                    <button onClick={showMore}
-                                    >show more</button>
+
+                                    {!results.islast?<button onClick={showMore}
+                                    >show more</button>:<label className='text-center font-bold'>---- Nothing to load ----</label>
+
+                                    }
                                    </>:"No data available"}
                                    
                             </div>

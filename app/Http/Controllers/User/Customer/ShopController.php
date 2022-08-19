@@ -43,52 +43,62 @@ class ShopController extends Controller
             }
             
         }
-        $myString = "";
-        if(isset($tempCat)){
-            if(gettype($tempCat)=="string"){
-                $myString = "WHERE categories.description = '$tempCat'";
-            }else{
-                $myString = "WHERE categories.description = '$tempCat[0]'";
-                foreach(array_slice($tempCat,1) as $value){
-                    $myString = "$myString OR categories.description = '$value'";
-                }
-            }
-        }
-        if(isset($tempSort)){
-            if(gettype($tempSort)=="string"){
-                switch ($tempSort) {
-                    case 'ascending':
-                        $myString = "$myString ORDER BY price ASC";    
-                        break;
-                    case 'descending':
-                        $myString = "$myString ORDER BY price DESC";
-                        break;
-                    case 'popularity':
-                        $myString = "$myString ORDER BY rating DESC";
-                        break;
-                    default:
-                        $myString = "$myString ORDER BY created_at DESC";
-                        break;
-                }
-                
-            }
-            
-        }
         
-        if(empty($myString)){
+        
+        // if(isset($tempSort)){
+        //     if(gettype($tempSort)=="string"){
+        
+                
+        //     }
+            
+        // }
+        
+        if(empty($tempCat)&&empty($tempSort)){
             $allProducts = DB::table('products')->join('categories','products.categoryid','=','categories.categoryid')->select('products.*','categories.description')->paginate(20);
             
         }else{
-            $currentPage = $request->get('page');
-            $rowSkip = 20 * $currentPage;
+            
             if(isset($tempSort)){
-                $results = DB::select(DB::raw("SELECT * FROM products INNER JOIN categories on products.categoryid = categories.categoryid $myString ,products.productid asc limit 20 offset $rowSkip"));
+                if(empty($tempCat)){
+                    switch ($tempSort) {
+                        case 'ascending':
+                            $allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->orderBy('price','asc')->paginate(20);        
+                            break;
+                        case 'descending':
+                            $allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->orderBy('price','desc')->paginate(20);        
+                            break;
+                        case 'popularity':
+                            $allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->orderBy('rating','desc')->paginate(20);        
+                            break;
+                        default:
+                            
+                            break;
+                    }
+                    
+                }else{
+                    switch ($tempSort) {
+                        case 'ascending':
+                            gettype($tempCat)=="string"?$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->where('categories.description','=',$tempCat)->orderBy('price','asc')->paginate(20):$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->whereIn('categories.description',$tempCat)->orderBy('price','asc')->paginate(20);           
+                            break;
+                        case 'descending':
+                            gettype($tempCat)=="string"?$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->where('categories.description','=',$tempCat)->orderBy('price','desc')->paginate(20):$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->whereIn('categories.description',$tempCat)->orderBy('price','desc')->paginate(20);  
+                            break;
+                        case 'popularity':
+                            gettype($tempCat)=="string"?$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->where('categories.description','=',$tempCat)->orderBy('rating','desc')->paginate(20):$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->whereIn('categories.description',$tempCat)->orderBy('rating','desc')->paginate(20);  
+                            break;
+                        default:
+                            gettype($tempCat)=="string"?$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->where('categories.description','=',$tempCat)->paginate(20):$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->whereIn('categories.description',$tempCat)->orderBy('')->paginate(20);  
+                            break;
+                    }
+                }
+               
             }else{
 
-                $results = DB::select(DB::raw("SELECT * FROM products INNER JOIN categories on products.categoryid = categories.categoryid $myString ORDER BY products.productid asc limit 20 offset $rowSkip"));
+               gettype($tempCat)=="string"?$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->where('categories.description','=',$tempCat)->paginate(20):$allProducts =  Db::table('products')->join('categories', 'products.categoryid','=', 'categories.categoryid')->select('*')->whereIn('categories.description',$tempCat)->paginate(20);
+                
             }
             
-            $allProducts = new Paginator($results,20,$currentPage);
+            
             
         }
         
@@ -109,7 +119,7 @@ class ShopController extends Controller
         }
         $cart = new Cart();
         $cart->productid = $request->productid;
-        $cart->userid = $request->userid;
+        $cart->userid = Auth::user()->id;
         $cart->iswishlist = $request->iswishlist;
         $cart->save();
 
@@ -143,15 +153,45 @@ class ShopController extends Controller
     }
     public function viewMyCart(){
         
-        $myCart = DB::table('cart')->join('products','products.productid','=','cart.productid')->select('*')->where('userid','=',Auth::user()->id)->Where('iswishlist','=',false)->get();
+        $myCart = DB::table('cart')->join('products','products.productid','=','cart.productid')->join('stores','stores.storeid','=','products.storeid')->select('*')->where('cart.userid','=',Auth::user()->id)->Where('iswishlist','=',false)->get();
         $total = 0;
+
+        
+        $temp=array();
+
         foreach ($myCart as $key => $value) {
+            if(isset($temp[$value->storename])){
+                array_push($temp[$value->storename],$value);
+            }else{
+                $temp[$value->storename] = array($value);        
+            }
             $total += $value->price;
         }
+        
         return Inertia::render('User/Customer/Cart',[
-            'cart'=>$myCart,
+            'cart'=>$temp,
+            'itemCount'=>count($myCart),
             'maxPrice'=>$total
         ]);
+    }
+
+    public function viewMyWishlist(){
+        $myWishlist = DB::table('cart')->join('products','products.productid','=','cart.productid')->join('stores','stores.storeid','=','products.storeid')->select('*')->where('cart.userid','=',Auth::user()->id)->Where('iswishlist','=',true)->get();
+        
+        $temp=array();
+
+        foreach ($myWishlist as $key => $value) {
+            if(isset($temp[$value->storename])){
+                array_push($temp[$value->storename],$value);
+            }else{
+                $temp[$value->storename] = array($value);        
+            }
+            
+        }
+        return Inertia::render('User/Customer/Account/AccountWishList',[
+                'cart'=>$temp,
+        ]);
+
     }
     public function viewProduct($productid){
         $product = Product::find($productid);

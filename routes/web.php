@@ -83,7 +83,7 @@ function(){
     
         Route::get('/purchases', fn()=>Inertia::render('User/Customer/Account/AccountPurchases'))->name('purchases');
     
-        Route::get('/wishlist', fn()=>Inertia::render('User/Customer/Account/AccountWishList'))->name('wishlist');
+        Route::get('/wishlist', [ShopController::class,'viewMyWishlist'])->name('wishlist');
     
     });
 
