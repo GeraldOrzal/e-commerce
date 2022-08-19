@@ -9,7 +9,7 @@ import SearchBar from '@/Components/SearchBar';
 export default function Authenticated({ auth, header, children }) {
     
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-
+    
     return (
         <div className="min-h-screen bg-thirdary">
             <nav className="bg-primary">
@@ -40,7 +40,7 @@ export default function Authenticated({ auth, header, children }) {
             )}
 
             <main>{children}</main>
-            {auth?.usertypeid==2&&<Footer/>}
+            {auth.user?.usertypeid==1&&<Footer/>}
         </div>
     );
 }

@@ -19,11 +19,12 @@ export default function AccountNav(props) {
               <li><Link href={route('passwordchange')} className='hover:underline hover:text-[#0B237A]'>Change Password</Link></li>
             </ul>
             <li className='flex space-x-2'><img className='w-5 h-5' src={logo}/><Link href={route('purchases')} className='hover:underline hover:text-[#0B237A]'>My Purchases</Link></li>
+            <li className='flex space-x-2'><img className='w-5 h-5' src={logo}/><Link className='hover:underline hover:text-[#0B237A]'>Offers</Link></li>
             <li className='flex space-x-2'><img className='w-5 h-5' src={logo}/><Link href={route('wishlist')} className='hover:underline hover:text-[#0B237A]'>Wishlists</Link></li>
             <li className='flex space-x-2'><img className='w-5 h-5' src={logo}/><Link className='hover:underline hover:text-[#0B237A]'>Start Business</Link></li>
           </ul>
         </div>
-      </div>
+      </div>  
       {props.children}
     </div>
   )
