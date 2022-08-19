@@ -2,12 +2,24 @@ import Button from '@/Components/Button';
 import ProductCard from '@/Components/ProductCard';
 import Authenticated from '@/Layouts/Authenticated';
 import React from 'react';
-import { Link} from '@inertiajs/inertia-react';
+import { Link,useForm} from '@inertiajs/inertia-react';
 import { BsCart3 } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
 import { MdArrowForwardIos } from 'react-icons/md';
 export default function ViewProduct({ auth, errors, product }) {
 
+
+  const { data, setData, post, processing, reset } = useForm({
+    'productid':product.productid,
+    'iswishlist':false
+  });
+
+
+  const submit = (e) => {
+    
+    post(route('addcart'));
+    
+  };
   return (
     <Authenticated
       auth={auth}
@@ -75,10 +87,20 @@ export default function ViewProduct({ auth, errors, product }) {
             <div className='border bg-neutral1 border-fourthdary shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
             <div className='border bg-danger border-fourthdary shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
           </div>
-          <Button className='flex items-center w-fit 
+
+<form
+
+onSubmit={submit}
+>
+
+          <Button 
+          type='submit'
+          
+          className='flex items-center w-fit 
           md:text-sm 
           sm:self-start 
           xs:self-end xs:text-xs'>Add to cart <BsCart3 className='md:ml-2 xs:ml-1' /></Button>
+</form>
         </div>
       </div>
       <div className='max-w-7xl w-full mx-auto flex flex-row justify-center items-center p-2 mt-4 

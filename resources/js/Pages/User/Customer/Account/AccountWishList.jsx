@@ -5,6 +5,7 @@ import Button from '@/Components/Button'
 import AccountStoreList from '@/Components/AccountStoreList'
 export default function AccountWishList(props) {
 
+
   const wishlist = [
     {
       storename:"Hatdog",
@@ -26,6 +27,8 @@ export default function AccountWishList(props) {
   ]
     
     
+
+
   return (
     <Authenticated
       auth={props.auth}

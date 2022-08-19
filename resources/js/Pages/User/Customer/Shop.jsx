@@ -2,7 +2,7 @@ import ProductCard from '@/Components/ProductCard';
 import Slider from '@/Components/Slider';
 import Authenticated from '@/Layouts/Authenticated'
 import { Link } from '@inertiajs/inertia-react';
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Checkbox from '@/Components/Checkbox';
 import { IoIosArrowDown,IoIosArrowUp } from 'react-icons/io';
 import { MdArrowForwardIos } from 'react-icons/md';
@@ -24,6 +24,15 @@ export default function Shop(props) {
       isOpen:false,
     },
   })
+
+  useEffect(() => {
+    
+  
+    return () => {
+      setproducts(null);
+    }
+  }, [])
+  console.log(products);
   return (
     <Authenticated
       auth={props.auth}
@@ -64,7 +73,7 @@ export default function Shop(props) {
              lg:text-base
              xs:text-sm'>
               Filters
-              <Link href={route("shop")} className='ml-1
+              <Link href={route("shop",{page:1})} className='ml-1
                lg:text-base
                xs:text-sm'>Clear all</Link>
             </div>
