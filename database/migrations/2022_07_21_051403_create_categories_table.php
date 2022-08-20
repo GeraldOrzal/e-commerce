@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -14,9 +15,22 @@ return new class extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->smallInteger('categoryid',true,true);
+            $table->smallInteger('categoryid', true, true);
+            $table->string('imagename')->nullable();
             $table->string('description');
         });
+
+        DB::table('categories')->insert(
+            [
+                array('description' => "MEDICINE"),
+                array('description' => "TECHNOLOGY"),
+                array('description' => "HYGIENE"),
+                array('description' => "FOOD"),
+                array('description' => "FURNITURE"),
+                array('description' => "CLOTHES"),
+                
+            ]
+        );
     }
 
     /**

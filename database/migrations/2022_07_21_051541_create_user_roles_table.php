@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 return new class extends Migration
 {
     /**
@@ -17,6 +17,14 @@ return new class extends Migration
             $table->unsignedSmallInteger('roleid',true);
             $table->string('description');
         });
+
+        DB::table('user_roles')->insert(
+            [
+                array('description'=>"SUPER_ADMIN"),
+            array('description'=>"ADMIN"),
+            array('description'=>"USER")
+            ]
+        );
     }
 
     /**

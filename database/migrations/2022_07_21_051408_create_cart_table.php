@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('productid');
             $table->timestamps();
             $table->unsignedBigInteger('userid');
-            $table->unsignedSmallInteger('cartstatusid');
-            $table->unsignedSmallInteger('paymentid');
+            $table->unsignedSmallInteger('cartstatusid')->nullable();
+            $table->unsignedSmallInteger('paymentid')->nullable();
             $table->boolean('iswishlist');
             $table->foreign('productid')->references('productid')->on('products');
             $table->foreign('userid')->references('id')->on('users');

@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('BROADCAST_DRIVER', 'null'),
+    'default' => env('BROADCAST_DRIVER', 'pusher'),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,9 +37,14 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'host' => env('PUSHER_HOST', 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
-                'port' => env('PUSHER_PORT', 443),
+                'port' => env('PUSHER_PORT', 6001),
+                // 'host'=>'127.0.0.1',
+                // 'port'=>6001,
                 'scheme' => env('PUSHER_SCHEME', 'https'),
-                'encrypted' => true,
+                // 'scheme'=>'http',
+                'cluster'=>env('PUSHER_APP_CLUSTER'),
+                'encrypted' => false,
+                // 'useTLS'=>false
                 'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
             ],
             'client_options' => [

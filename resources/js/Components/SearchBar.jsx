@@ -37,12 +37,14 @@ export default function SearchBar(props) {
 
             
         
-        const  resdata = await (await fetch(`/api/products?product=${data.target.value}`)).json();
+        const  resdata = await axios.get(`/api/products?product=${data.target.value}`);
+
+        
         
         setresults({
             ...results,
-            islast:resdata.data.length<10?true:false,
-            data:resdata.data,
+            islast:resdata.data.data.length<10?true:false,
+            data:resdata.data.data,
             isLoading:false
         });
     };
@@ -57,13 +59,13 @@ export default function SearchBar(props) {
 
     const showMore = async()=> {
         
-        const  resdata = await (await fetch(`/api/products?product=${inputRef.current.value}&show=${results.showIndex + 1}`)).json();
+        const  resdata = await axios.get(`/api/products?product=${inputRef.current.value}&show=${results.showIndex + 1}`);
 
         
         
         setresults({
-            islast:resdata.data.length==0?true:false,
-            data:[...results.data,...resdata.data],
+            islast:resdata.data.data.length==0?true:false,
+            data:[...results.data,...resdata.data.data],
             isLoading:false,
             showIndex: results.showIndex+1
         });

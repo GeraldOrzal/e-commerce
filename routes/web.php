@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\Message;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Customer\ShopController;
@@ -25,12 +26,15 @@ Route::get('/', [ShopController::class,'create'])->name("index");
 
 Route::get('/viewproduct/{id}', [ShopController::class,'viewProduct'])->name('viewproduct');
 
+
+
+
 Route::group([
     'prefix'=>'user',
     'middleware'=>['auth','isUser']
 ],
 function(){
-    
+   
     Route::get('/shop', [ShopController::class,'create'])->name('shop');
     
     Route::delete('/cart',[ShopController::class,'destroy'])->name('removecart');

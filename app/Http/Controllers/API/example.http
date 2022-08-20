@@ -11,3 +11,7 @@ Content-Type: application/json
     "price":50
     
 }
+
+### 
+
+GET http://127.0.0.1:8000/userMessage
