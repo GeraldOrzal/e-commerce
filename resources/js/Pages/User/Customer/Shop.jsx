@@ -11,14 +11,18 @@ import { FiFilter } from 'react-icons/fi';
 import Chat from '@/Components/Chat';
 
 export const MessageContext = React.createContext();
+
+const channel = Echo.private('private.chat.1');
+const joinedChannel = Echo.join('presence.chat.1');
 export default function Shop(props) {
   const [products, setproducts] = useState(props.allProducts.data)
   const [message, setmessage] = useState([])
+  const [isTyping, setisTyping] = useState(false);
   const [newMessage, setnewMessage] = useState("");
   const value = {
-    message, setmessage
+    message, setmessage,channel,isTyping,setisTyping
   }
-  console.log(props)
+  
   const [filterState, setfilterState] = useState({
     isOpen: false,
     category: {
@@ -36,28 +40,43 @@ export default function Shop(props) {
   })
 
   useEffect(() => {
-
-    const channel = Echo.private('private.message.1')
+    
+    
 
     channel.subscribed(() => {
       console.log("SUBBED");
-    }).listen('.message', (e) => {
-      console.log(e, "HEHEHE");
-      if (props.auth.user.name == e.user.name) {
+    }).listen('.message',(e)=>{
+      if(e.user.name==props.auth.user.name){
+        
         return;
       }
-      setnewMessage(
-        e.message,
-      );
+      setnewMessage(e.message,e);
+      
+    }).listenForWhisper('.typing',(d)=>{
+      
+      setisTyping(true);
+      let timeOut = setTimeout(() => {
+        setisTyping(false);
+      }, 1000);
+      timeOut.refresh();
     });
-
+    joinedChannel.here(()=>{
+      console.log("SUBSCRIBED")
+    }).joining((e)=>{
+      console.log(e)
+    })
+    
+    
     return () => {
       setproducts(null);
     }
   }, [])
 
   useEffect(() => {
-
+    if(newMessage==null){
+      return;
+    }
+    
     setmessage([
       ...message,
       {
