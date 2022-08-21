@@ -39,7 +39,7 @@ class Message implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('private.message.1');
+        return [new PresenceChannel('presence.chat.1'),new PrivateChannel('private.chat.1')];
     }
 
     public function broadcastAs(){
