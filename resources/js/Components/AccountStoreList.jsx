@@ -10,10 +10,10 @@ export default function AccountStoreList(props) {
       <div className=' divide-y'>
         <div className='flex flex-row p-2 ml-5'>
           <h2 className='flex-1'>{props.storename}</h2>
-          <div className='flex flex-row divide-x '>
+          {!props.iswishlist&&<div className='flex flex-row divide-x'>
             <h2 className='px-5'>Your Order Was Pending</h2>
             <h2 className='px-5'>To Pay</h2>
-          </div>
+          </div>}
         </div>
         <div className='flex flex-col divide-y px-5'>
           {/* 
@@ -25,8 +25,9 @@ export default function AccountStoreList(props) {
           5 - cancelled
            */}
           {
-            props.itemlist.map(({productname,image,price,brand})=>props.iswishlist?<AccountWishlistItem
+            props.itemlist.map(({cartid, productname,image,price,brand})=>props.iswishlist?<AccountWishlistItem
             
+            cartid={cartid}
             productname={productname}
             image={image}
             price={price}
