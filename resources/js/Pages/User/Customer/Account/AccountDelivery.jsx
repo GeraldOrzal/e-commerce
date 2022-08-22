@@ -56,7 +56,8 @@ export default function AccountDelivery(props) {
               whenClick={
                 ()=>setmodalShow(false)}
               >
-                <form className='mt-5 space-y-5'>
+                <form className='p-5 mt-5 space-y-5'>
+                <h2 className='font-bold'>Add Delivery Address</h2>
                 <Input
                   type="text"
                   name="name"
