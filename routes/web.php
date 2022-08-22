@@ -21,12 +21,10 @@ use Inertia\Inertia;
 
 
 
+
 Route::get('/', [ShopController::class,'create'])->name("index");
 
-
 Route::get('/viewproduct/{id}', [ShopController::class,'viewProduct'])->name('viewproduct');
-
-
 
 
 Route::group([
