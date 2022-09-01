@@ -12,7 +12,7 @@ export default function AccountPasswordChange(props) {
       <AccountNav
         Username={props.auth.user.name}
       >
-        <div className='w-4/5 border-1 rounded shadow-xl m-5 h-screen divide-y bg-primary'>
+        <div className='w-4/5 rounded shadow-xl m-5 h-screen divide-y bg-primary'>
           <div className='p-5 font-bold'>Change Password</div>
           <div className='p-5'>
             <form>
@@ -21,6 +21,7 @@ export default function AccountPasswordChange(props) {
                 <Input
                   type="password"
                   name="currentpassword"
+                  value={props.currentpassword}
                   className="mt-1 w-full rounded-tr-xl border"
                   autoComplete="name"
                   isFocused={true}
@@ -29,6 +30,7 @@ export default function AccountPasswordChange(props) {
                 <Input
                   type="password"
                   name="newpassword"
+                  value={props.newpassword}
                   className="mt-1 w-full rounded-tr-xl border"
                   autoComplete="username"
                 />
@@ -36,6 +38,7 @@ export default function AccountPasswordChange(props) {
                 <Input
                   type="password"
                   name="confirmpassword"
+                  value={props.confirmpassword}
                   className="mt-1 w-full rounded-tr-xl border"
                   autoComplete="username"
                 />

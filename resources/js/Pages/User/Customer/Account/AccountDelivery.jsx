@@ -34,7 +34,7 @@ export default function AccountDelivery(props) {
       <AccountNav
         Username={props.auth.user.name}
       >
-        <div className='w-4/5 border h-full rounded shadow-xl m-5 divide-y bg-primary'>
+        <div className='w-4/5 h-full rounded shadow-xl m-5 divide-y bg-primary'>
           <div className='p-5 grid grid-cols-2'>
             <h2 className=' font-bold '>Delivery Address</h2>
             <h2 
@@ -43,7 +43,7 @@ export default function AccountDelivery(props) {
           </div>
           <div className='flex flex-col h-screen overflow-y-scroll'>
             {
-              addresses.map(({name,number,address})=>
+              props.addresses?.map(({name,number,address})=>
               <AccountDeliveryAddress 
               name={name}
               number={number}
