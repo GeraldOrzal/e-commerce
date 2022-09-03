@@ -97,12 +97,12 @@ export default function Shop(props) {
       header={props.isShowResults ? <>
         <h2 className="text-xl">{`Show results ${props.resultdata} products`}</h2>
       </> : <><div className='flex flex-row items-center'>
-        <Link href={route('index')} className="text-secondary mr-2
+        <Link href={route('index')} className="text-disable mr-2
            lg:text-xl
            md:text-lg
            xs:text-base">Home</Link>
-        <MdArrowForwardIos className='text-secondary' />
-        <label className="ml-2 text-secondary
+        <MdArrowForwardIos className='text-disable' />
+        <label className="ml-2 text-disable
          lg:text-xl
          md:text-lg
          xs:text-base">All Products</label>

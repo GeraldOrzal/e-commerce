@@ -1,37 +1,42 @@
 import React from 'react'
-import { Head,Link } from '@inertiajs/inertia-react';
-import { BsArrowRight, BsArrowLeft,BsBag } from 'react-icons/bs';
+import { Head, Link } from '@inertiajs/inertia-react';
+import { BsArrowRight, BsArrowLeft, BsBag } from 'react-icons/bs';
+import { MdInbox, MdMonetizationOn, MdMoney, MdMoneyOffCsred, MdNotes, MdOutlineAnalytics, MdOutlineLocalShipping, MdReviews } from 'react-icons/md';
 export default function SellerNav(props) {
   return (
-   <div className='flex flex-row '>
-    <div className='flex flex-col p-2 w-1/5 pl-10 space-y-10 '>
-        <Link href={route('dashboardseller')} 
-          
-        >
-          <BsBag className='mr-1 inline-block pb-1'/>
+    <div className='w-1/5 h-screen flex flex-row shadow text-lg-2xl'>
+      <div className='w-full flex flex-col space-y-6'>
+        <Link href={route('dashboardseller')}
+        className='w-full flex flex-row items-center pl-8 py-2 shadow text-lg'>
+          <MdOutlineAnalytics className='mr-1'/>
           Analytics
-          </Link>
-        <Link href={route('product')}>
-        <BsBag className='mr-1 inline-block pb-1'/>
+        </Link>
+        <Link href={route('product')} 
+        className='w-full flex flex-row items-center pl-8 py-2 shadow text-lg'>
+          <BsBag className='mr-1'/>
           Products</Link>
-        <Link href={route('shipment')}>
-        <BsBag className='mr-1 inline-block pb-1'/>
+        <Link href={route('shipment')}
+        className='w-full flex flex-row items-center pl-8 py-2 shadow text-lg'>
+          <MdOutlineLocalShipping className='mr-1'/>
           Shipment</Link>
-        <Link href={route('orders')}>
-        <BsBag className='mr-1 inline-block pb-1'/>
+        <Link href={route('orders')}
+        className='w-full flex flex-row items-center pl-8 py-2 shadow text-lg'>
+          <MdNotes className='mr-1'/>
           Orders</Link>
-        <Link href={route('sale')}>
-        <BsBag className='mr-1 inline-block pb-1'/>
+        <Link href={route('sale')}
+        className='w-full flex flex-row items-center pl-8 py-2 shadow text-lg'>
+          <MdMonetizationOn className='mr-1'/>
           Sale</Link>
-        <Link href={route('review')}>
-        <BsBag className='mr-1 inline-block pb-1'/>
+        <Link href={route('review')}
+        className='w-full flex flex-row items-center pl-8 py-2 shadow text-lg'>
+          <MdReviews className='mr-1'/>
           Review</Link>
-        <Link href={route('inbox')}>
-        <BsBag className='mr-1 inline-block pb-1'/>
+        <Link href={route('inbox')}
+        className='w-full flex flex-row items-center pl-8 py-2 shadow text-lg'>
+          <MdInbox className='mr-1'/>
           Inbox</Link>
-        
+      </div>
+      {props.children}
     </div>
-    {props.children}
-   </div> 
   )
 }

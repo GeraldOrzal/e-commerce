@@ -39,12 +39,12 @@ export default function Register() {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
-            <h1 className='text-4xl text-center text-neutral1 font-bold mb-2'>
-                Welcome!
-            </h1>
-            <h2 className='text-center'>Let's make your account.</h2>    
+                <h1 className='text-4xl text-center text-secondary font-bold mb-2'>
+                    Welcome!
+                </h1>
+                <h2 className='text-center'>Let's make your account.</h2>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsPerson className='text-2xl text-disable' /></div>
                     <Input
                         type="text"
                         name="name"
@@ -58,7 +58,7 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsEnvelope className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsEnvelope className='text-2xl text-disable' /></div>
                     <Input
                         type="email"
                         name="email"
@@ -71,7 +71,7 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
                     <Input
                         type="password"
                         name="password"
@@ -84,12 +84,12 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
                     <Input
                         type="password"
                         name="password_confirmation"
                         value={data.password_confirmation}
-                        className="mt-1 w-full rounded-tr-xl"
+                        className="mt-1 w-full"
                         handleChange={onHandleChange}
                         required
                         placeholder='Confirm Password'
@@ -104,25 +104,25 @@ export default function Register() {
                     </Button>
                 </div>
                 <div
-                className='flex flex-row items-center mt-2'
+                    className='flex flex-row items-center mt-2'
                 >
-                <div className='border-solid border-b w-full h-0'></div>
-                <label className='mx-5'>or</label>
-                <div className='border-solid border-b w-full h-0'></div>
+                    <div className='border-solid border-b w-full h-0'></div>
+                    <label className='mx-5'>or</label>
+                    <div className='border-solid border-b w-full h-0'></div>
                 </div>
                 <div className="flex flex-col items-center mt-4">
                     <h3>Login using</h3>
                     <div className='flex flex-row space-x-5 mb-5 p-5'>
                         <BsTwitter
-                        size={25}
-                        color="#00acee"
+                            size={25}
+                            color="#00acee"
                         />
                         <BsFacebook
-                        size={25}
-                        color="#0000ff"
+                            size={25}
+                            color="#0000ff"
                         />
                         <FcGoogle
-                        size={25}
+                            size={25}
                         />
                     </div>
                 </div>

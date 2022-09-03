@@ -1,5 +1,4 @@
 import Button from '@/Components/Button';
-import ProductCard from '@/Components/ProductCard';
 import Authenticated from '@/Layouts/Authenticated';
 import React from 'react';
 import { Link,useForm} from '@inertiajs/inertia-react';
@@ -27,12 +26,12 @@ export default function ViewProduct({ auth, errors, product }) {
       product={product}
       header={
         <div className='flex flex-row items-center'>
-          <Link href="/" className="text-secondary mr-2
+          <Link href="/" className="text-disable mr-2
              lg:text-xl
              md:text-lg
              xs:text-base">Home</Link>
-          <MdArrowForwardIos className='text-secondary' />
-          <label className="ml-2 text-secondary
+          <MdArrowForwardIos className='text-disable' />
+          <label className="ml-2 text-disable
              lg:text-xl
              md:text-lg
              xs:text-base">View Product</label>
@@ -62,30 +61,30 @@ export default function ViewProduct({ auth, errors, product }) {
           <label className='md:text-base xs:text-sm'>₱ {product.price}.00</label>
           <label className='md:text-base xs:text-sm'>Select Size</label>
           <div className='flex flex-row items-center flex-wrap'>
-            <div className='border border-fourthdary text-fourthdary shadow py-1 px-2 rounded-md mr-1 mb-1
+            <div className='border border-disable text-disable shadow py-1 px-2 rounded-md mr-1 mb-1
             md:text-base 
             xs:text-xs'>XS</div>
-            <div className='border border-fourthdary text-fourthdary shadow py-1 px-2 rounded-md mr-1 mb-1
+            <div className='border border-disable text-disable shadow py-1 px-2 rounded-md mr-1 mb-1
             md:text-base 
             xs:text-xs'>SM</div>
-            <div className='border border-fourthdary text-fourthdary shadow py-1 px-2 rounded-md mr-1 mb-1
+            <div className='border border-disable text-disable shadow py-1 px-2 rounded-md mr-1 mb-1
             md:text-base 
             xs:text-xs'>MD</div>
-            <div className='border border-fourthdary text-fourthdary shadow py-1 px-2 rounded-md mr-1 mb-1
+            <div className='border border-disable text-disable shadow py-1 px-2 rounded-md mr-1 mb-1
             md:text-base 
             xs:text-xs'>LG</div>
-            <div className='border border-fourthdary text-fourthdary shadow py-1 px-2 rounded-md mr-1 mb-1
+            <div className='border border-disable text-disable shadow py-1 px-2 rounded-md mr-1 mb-1
             md:text-base 
             xs:text-xs'>XL</div>
-            <div className='border border-fourthdary text-fourthdary shadow py-1 px-2 rounded-md mr-1 mb-1
+            <div className='border border-disable text-disable shadow py-1 px-2 rounded-md mr-1 mb-1
             md:text-base 
             xs:text-xs'>2XL</div>
           </div>
           <label className='md:text-base xs:text-sm'>Select Color</label>
           <div className='flex flex-row items-center flex-wrap'>
-            <div className='border bg-primary border-fourthdary shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
-            <div className='border bg-neutral1 border-fourthdary shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
-            <div className='border bg-danger border-fourthdary shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
+            <div className='border bg-primary border-disable shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
+            <div className='border bg-secondary border-disable shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
+            <div className='border bg-error border-disable shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
           </div>
 
 <form
