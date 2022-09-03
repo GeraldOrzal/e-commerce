@@ -1,5 +1,4 @@
 import Button from '@/Components/Button';
-import ProductCard from '@/Components/ProductCard';
 import Authenticated from '@/Layouts/Authenticated';
 import React from 'react';
 import { Link, useForm } from '@inertiajs/inertia-react';

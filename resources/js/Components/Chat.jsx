@@ -46,7 +46,7 @@ export default function Chat(props) {
 
 
     return (
-        
+
         !isOpen?<div className='bg-secondary text-primary fixed w-1/3 h-10 bottom-0 ml-5 border rounded-t-md flex flex-row items-center p-3 border-b-2' onClick={()=>setisOpen(true)}>
                 <label
                     className='flex-1'
@@ -56,6 +56,7 @@ export default function Chat(props) {
         
         <div className='bg-primary text-black fixed w-1/3 h-3/5 bottom-0 ml-5 border rounded-t-md flex flex-col' >
             <div className='flex flex-row items-center p-3 border-b-2 bg-secondary text-primary' onClick={()=>setisOpen(false)}>
+
                 <label
                     className='flex-1'
                 >Gerald Orzal</label>

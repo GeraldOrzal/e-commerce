@@ -9,12 +9,13 @@ export default function Footer() {
         //             <div className='flex flex-row justify-between px-10'>
         //                 <ApplicationLogoFooter className="self-center"/>
 
-
         <footer className='bg-primary max-w-8xl mx-auto w-full flex flex-col p-5'>
             <div className='flex justify-center items-center
             lg:flex-row
             xs:flex-col'>
+
                 <img src='/images/LTSCLogoFull.png' alt='full logo' className='self-center
+
                 lg:mr-8 lg:ml-8 lg:mb-0
                 md:h-12
                 sm:mb-4  

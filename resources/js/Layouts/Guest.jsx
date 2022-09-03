@@ -108,7 +108,7 @@ export default function Guest({ children }) {
                 {children}
             </div>
             
-            <div className='flex flex-row justify-center items-center sm:text-black sm:bg-transparent sm:w-full xs:text-black xs:bg-primary xs:w-full p-5 sm:pt-5 xs:pt-0 space-x-1'>
+            <div className='flex flex-row justify-center items-center sm:text-primary sm:bg-transparent sm:w-full xs:text-black xs:bg-primary xs:w-full p-5 sm:pt-5 xs:pt-0 space-x-1'>
                 <Link> Privacy Policy</Link>
                 <label>|</label>
                 <Link>Terms and Condition</Link>

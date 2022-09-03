@@ -3,21 +3,21 @@ import Input from '@/Components/Input'
 import Authenticated from '@/Layouts/Authenticated'
 import SellerNav from '@/Layouts/SellerNav'
 import React from 'react'
-import { BsPlusCircle , BsList} from 'react-icons/bs'
-import { Head,Link } from '@inertiajs/inertia-react';
+import { BsPlusCircle, BsList } from 'react-icons/bs'
+import { Head, Link } from '@inertiajs/inertia-react';
 import Checkbox from '@/Components/Checkbox'
+import { MdViewQuilt } from 'react-icons/md'
 export default function Product(props) {
     return (
         <Authenticated
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Products</h2>}
         >
-            <SellerNav>
-                <div className=' flex-1 bg-primary p-2 shadow-md m-5'>
+            <div className='flex flex-row'>
+                <SellerNav />
+                <div className=' flex-1 bg-primary p-2 shadow m-2 p-4 border'>
                     <div className='space-x-2 flex flex-row items-center w-full'>
-                        <label>Product name:</label>
-                        <Input className='flex-1 '/>
+                        <Input placeholder='Enter Product Name' className='' />
                         <label>Category:</label>
                         <select className='flex-1'>
                             <option>Default</option>
@@ -25,49 +25,51 @@ export default function Product(props) {
                         <Button>
                             Search
                         </Button>
-                        <Button>
+                        <Button className='bg-error'>
                             Reset
                         </Button>
                     </div>
-                    <div className='flex flex-row space-x-2'>
-                        <div className='p-5 border-b-2 flex-1 text-center'>
-                            All 
+
+                    <div className='flex flex-row space-x-2 border-b-2'>
+                        <div className='p-5 flex-1 text-center'>
+                            All
+
                         </div>
-                        <div className='p-5 border-b-2 flex-1 text-center'>
+                        <div className='p-5 flex-1 text-center'>
                             Published
                         </div>
-                        <div className='p-5 border-b-2 flex-1 text-center'>
+                        <div className='p-5 flex-1 text-center'>
                             Sold Out
                         </div >
-                        <div className='p-5 border-b-2 flex-1 text-center'>
+                        <div className='p-5 flex-1 text-center'>
                             Reviewing
                         </div>
-                        <div className='p-5 border-b-2 flex-1 text-center'>
+                        <div className='p-5 flex-1 text-center'>
                             Violation
                         </div>
-                        <div className='p-5 border-b-2 flex-1 text-center'>
+                        <div className='p-5 flex-1 text-center'>
                             Unlisted
                         </div>
                     </div>
                     <div>
-                        0 Products
-                        <div className='flex flex-row justify-end'>
+                        <h1 className='p-2'>0 Products</h1>
+                        <div className='flex flex-row justify-end items-center mb-2'>
                             <Link href={route('addproduct')}>
-                                <BsPlusCircle className='inline-block mr-2'/>
+                                <BsPlusCircle className='inline-block mr-2' />
                                 Add Product
                             </Link>
-                            <Button>
+                            <Button className='px-0 py-0 bg-transparent text-black text-2xl'>
                                 <BsList/>
                             </Button>
-                            <Button>
-                                <BsList/>
+                            <Button className='px-0 py-0 bg-transparent text-black text-2xl'>
+                                <MdViewQuilt/>
                             </Button>
                         </div>
                     </div>
                     <table className='table-auto w-full '>
                         <thead className='border'>
                             <tr >
-                                <th><Checkbox/></th>
+                                <th><Checkbox /></th>
                                 <th >Products</th>
                                 <th >Category</th>
                                 <th >Price</th>
@@ -78,7 +80,7 @@ export default function Product(props) {
                         </thead>
                         <tbody>
                             <tr>
-                            <th><Checkbox/></th>
+                                <th><Checkbox /></th>
                                 <th>Air Jordan</th>
                                 <th>Shoes</th>
                                 <th>500</th>
@@ -89,8 +91,7 @@ export default function Product(props) {
                         </tbody>
                     </table>
                 </div>
-
-            </SellerNav>
+            </div>
         </Authenticated>
     )
 }

@@ -108,7 +108,8 @@ export default function AccountPurchases(props) {
           className=' h-max mr-5 space-y-5'>
             
             {
-              data[current].map(({storename,list})=>
+              props.data&&
+              props.data[current]?.map(({storename,list})=>
               <AccountStoreList
                 iswishlist={false}
                 storename={storename}

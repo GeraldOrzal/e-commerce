@@ -15,7 +15,9 @@ export default function Authenticated({ auth, header, children }) {
             <nav className="bg-primary">
                 {
                     auth.user?.usertypeid!=2&&
-                <div className='flex flex-row justify-end space-x-2 p-2 underline 
+
+                <div className='flex flex-row justify-end space-x-2 p-2 mr-4 underline 
+
                 md:text-base 
                 xs:text-sm'>
                         <Link> About Us</Link>
@@ -24,7 +26,7 @@ export default function Authenticated({ auth, header, children }) {
                     
                 </div>
                 }
-                <header className='container-fluid mb-2 flex flex-row justify-center items-center sm:space-x-20 sm:px-5'>
+                <header className='mb-2 flex flex-row justify-center items-center'>
                   <SearchBar
                     auth={auth}
                   />

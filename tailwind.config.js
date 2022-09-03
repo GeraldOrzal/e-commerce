@@ -47,7 +47,9 @@ module.exports = {
             tertiary: '#444EA3',
             disable: '#7D7D7D',
             error: '#991B1E',
-            black: '#121212'
+            black: '#121212',
+            black_trans: 'rgba(0,0,0,0.5)',
+            transparent: 'transparent',
         }
     },
     plugins: [
