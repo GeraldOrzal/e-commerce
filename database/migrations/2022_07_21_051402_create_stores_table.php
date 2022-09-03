@@ -16,11 +16,8 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id('storeid');
             $table->string('storename');
-            $table->string('storeavatarname');
-            $table->unsignedSmallInteger('businesscategoryid');
+            $table->string('storeavatarname')->nullable();
             $table->string('description');
-            $table->foreign('businesscategoryid')->references('businesscategoryid')->on('business_categories');
-            
         });
     }
 

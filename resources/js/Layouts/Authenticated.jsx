@@ -15,10 +15,10 @@ export default function Authenticated({ auth, header, children }) {
             <nav className="bg-primary">
                 {
                     auth.user?.usertypeid!=2&&
-                <div className='flex flex-row justify-end space-x-2 p-2 underline'>
-                    
-                        <Link
-                        > About Us</Link>
+                <div className='flex flex-row justify-end space-x-2 p-2 underline 
+                md:text-base 
+                xs:text-sm'>
+                        <Link> About Us</Link>
                         <Link> Contact Us</Link>
                         <Link> Track Order</Link>
                     

@@ -28,7 +28,7 @@
         "react-dom": "^17.0.2"
     },
     "dependencies": {
-        "truffle": "^5.5.27",
-        "truffle-contract": "^4.0.31"
+        "@react-spring/parallax": "^9.5.2",
+        "react-spring": "^9.5.2"
     }
 }

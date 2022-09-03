@@ -31,7 +31,7 @@ export default function Product(props) {
                     </div>
                     <div className='flex flex-row space-x-2'>
                         <div className='p-5 border-b-2 flex-1 text-center'>
-                            All
+                            All 
                         </div>
                         <div className='p-5 border-b-2 flex-1 text-center'>
                             Published

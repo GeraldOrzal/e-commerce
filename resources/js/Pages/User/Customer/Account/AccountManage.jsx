@@ -1,11 +1,23 @@
 import AccountNav from '@/Layouts/AccountNav'
 import Authenticated from '@/Layouts/Authenticated'
-import React from 'react'
+import React,{useState} from 'react'
 import Input from '@/Components/Input'
 import logo from '@/images/logo.png'
 import Button from '@/Components/Button'
+import { Link, useForm } from '@inertiajs/inertia-react'
 
 export default function AccountManage(props) {
+  const [user,setUser] = useState(props.auth.user);
+
+  
+  function onClickButton(){
+    const imageItem = document.createElement('input');
+    imageItem.type = "file";
+    imageItem.click();
+    imageItem.addEventListener('change',(e)=>{
+      console.log(e);
+    });
+  }
   return (
     <Authenticated
       auth={props.auth}
@@ -24,6 +36,7 @@ export default function AccountManage(props) {
                   type="text"
                   name="username"
                   className="mt-1 w-full rounded-tr-xl border"
+                  value={props.auth?.user.username}
                   autoComplete="name"
                   isFocused={true}
                 />
@@ -38,6 +51,7 @@ export default function AccountManage(props) {
                 />
                 <div className='p-2 mt-1'><h2 className='font-semibold text-right'>Email:</h2></div>
                 <Input
+                  value={props.auth.user.email}
                   type="email"
                   name="email"
                   className="mt-1 w-full rounded-tr-xl  border"
@@ -76,8 +90,9 @@ export default function AccountManage(props) {
             </form>
             <div className='flex flex-col w-1/3 p-5'>
               <div className='flex flex-col items-center text-center'>
+                
                 <img className='w-32 h-32 mt-10 rounded-full' src='https://cdn-icons-png.flaticon.com/512/1946/1946429.png' />
-                <Button className='mt-2'>Upload Image</Button>
+                <Button className='mt-2' name="uploadimage" onClick={()=>onClickButton()}>Upload Image</Button>
                 <h1 className='mt-2'>File Size Maximum: 2MB</h1>
                 <h1>File Extension: JPEG, PNG</h1>
               </div>

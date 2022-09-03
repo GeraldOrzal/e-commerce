@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\Message;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Customer\ShopController;
@@ -26,6 +27,7 @@ Route::get('/', [ShopController::class,'create'])->name("index");
 
 Route::get('/viewproduct/{id}', [ShopController::class,'viewProduct'])->name('viewproduct');
 
+Route::get('/aboutus', fn()=>Inertia::render('AboutUs'))->name("aboutus");
 
 Route::group([
     'prefix'=>'user',
@@ -78,6 +80,8 @@ function(){
         Route::get('/delivery',  fn()=>Inertia::render('User/Customer/Account/AccountDelivery'))->name('delivery');
         
         Route::get('/manage',  fn()=>Inertia::render('User/Customer/Account/AccountManage'))->name('manage');
+        
+        Route::patch('/manage',  [AuthenticatedSessionController::class,'update'])->name('updateuser');
         
         Route::get('/passwordchange', fn()=>Inertia::render('User/Customer/Account/AccountPasswordChange'))->name('passwordchange');
     
