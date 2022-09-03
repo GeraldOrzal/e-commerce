@@ -44,8 +44,8 @@ export default function Chat(props) {
 
 
     return (
-        <div className='bg-primary text-black absolute w-1/3 h-2/3 bottom-0 ml-5 border rounded-t-md flex flex-col'>
-            <div className='flex flex-row items-center p-3 border-b-2'>
+        <div className='bg-primary absolute hidden w-1/3 h-2/3 bottom-0 ml-5 border rounded-t-md flex flex-col'>
+            <div className='flex flex-row items-center p-3 border-b-2 border'>
                 <label
                     className='flex-1'
                 >Gerald Orzal</label>

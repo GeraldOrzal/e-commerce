@@ -46,14 +46,13 @@ export default function Login({ status, canResetPassword }) {
                 Sign in to continue
             </h1>    
                 <div className='flex flex-row items-center'>
-                    <div className='bg-black bg-opacity-10 p-2 rounded-bl-xl'><BsPerson className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsPerson className='text-2xl text-disable'/></div>
                     <Input
                         type="text"
                         name="email"
                         value={data.email}
-                        className=" rounded-tr-xl w-full"
+                        className=""
                         autoComplete="username"
-                        
                         handleChange={onHandleChange}
                         required
                         placeholder="Enter Email"
@@ -61,7 +60,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="mt-4 flex flex-row items-center">
-                    <div className='bg-black bg-opacity-10 p-2  rounded-bl-xl'><BsLock className='text-2xl text-fourthdary'/></div>
+                    <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable'/></div>
                     <Input
                         type="password"
                         name="password"
@@ -76,7 +75,7 @@ export default function Login({ status, canResetPassword }) {
                 {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline float-right text-sm font-bold text-error"
+                            className="underline mt-2 float-right text-sm font-bold text-error"
                         >
                             Forgot your password?
                         </Link>
