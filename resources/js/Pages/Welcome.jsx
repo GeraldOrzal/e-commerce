@@ -32,10 +32,10 @@ export default function Welcome(props) {
                     xs:flex-col'>
                         <img alt='ads' className='shadow
                          md:w-1/2 md:mr-2 md:mb-0 
-                         xs:w-4/5 xs:mr-0 xs:mb-2' src='' />
+                         xs:w-4/5 xs:mr-0 xs:mb-2' src='/images/ads.png' />
                         <img alt='ads' className='shadow
                          md:w-1/2 md:mr-2 md:mb-0 
-                         xs:w-4/5 xs:mr-0 xs:mb-2' src='' />
+                         xs:w-4/5 xs:mr-0 xs:mb-2' src='/images/ads.png' />
                     </div>
                     <div className='max-w-7xl mx-auto'>
                         <div className='flex items-center font-bold pl-2 mb-2

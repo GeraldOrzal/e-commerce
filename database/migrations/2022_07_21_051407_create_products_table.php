@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedInteger('quantity');
             $table->unsignedSmallInteger('categoryid');//f
             $table->unsignedInteger('rating');
+            $table->timestamps();
             $table->json('imagesname');
             $table->unsignedBigInteger('storeid');//f
             $table->foreign('brandid')->references('brandid')->on('brands');

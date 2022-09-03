@@ -1,11 +1,14 @@
 import AccountNav from '@/Layouts/AccountNav'
 import Authenticated from '@/Layouts/Authenticated'
-import React from 'react'
+import React,{useState} from 'react'
 import Input from '@/Components/Input'
 import logo from '@/images/logo.png'
 import Button from '@/Components/Button'
+import { Link, useForm } from '@inertiajs/inertia-react'
 
 export default function AccountManage(props) {
+
+
 
 
   return (
@@ -13,6 +16,7 @@ export default function AccountManage(props) {
       auth={props.auth}
       errors={props.errors}
     >
+
       
           <AccountNav
           Username={props.auth.user.name}
@@ -90,6 +94,7 @@ export default function AccountManage(props) {
                   <h1 className='mt-2'>File Size Maximum: 2MB</h1>
                   <h1>File Extension: JPEG, PNG</h1>
                 </div>
+
               </div>
             </div>
             </form>

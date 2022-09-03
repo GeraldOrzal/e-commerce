@@ -186,7 +186,7 @@ export default function Shop(props) {
                       }
                     }
                     value={a.description}
-                  />{a.description}</li>)
+                  />{a.description.toLowerCase()}</li>)
               }
 
             </ul>
@@ -292,19 +292,27 @@ export default function Shop(props) {
         <Chat
           user={props.auth.user}
         />
-      </MessageContext.Provider>
+      </MessageContext.Provider> 
       <div className='max-w-7xl mx-auto bg-primary w-full flex flex-row flex-wrap justify-center items-center auto-rows-auto gap-2
       lg:p-6 lg:pt-0
       xs:p-0 xs:pt-0'>
         {
-          products?.map(({ productid, productname, rating, price }) => <ProductCard
+          products.length!=0?products?.map(({productdetails, imagesname,productid, productname, rating, price }) => <ProductCard
             productid={productid}
             key={productid}
             name={productname}
+            images={imagesname}
+            productdetails={productdetails}
             price={price}
             rating={rating}
-          />)
+          />):
+          <>
+            <object data="/svgs/Frame.svg" type="image/svg+xml" className='h-72'></object>
+            <label>No item found</label>
+          </>
         }
+        
+        
       </div>
       <div className='flex flex-row space-x-2 justify-center mb-2'>
         {/*       

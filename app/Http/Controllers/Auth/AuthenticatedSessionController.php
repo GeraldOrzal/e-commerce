@@ -55,6 +55,20 @@ class AuthenticatedSessionController extends Controller
         
     }
 
+    public function update(Request $request){
+
+        // $user = User::find(Auth::user()->userid);
+
+        // $all = $request->all();
+
+        // foreach ($all as $key => $value) {
+        //     $user->$key = $value;
+        // }
+        
+        // $user->save();
+        
+    }
+
     /**
      * Destroy an authenticated session.
      *
@@ -69,6 +83,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect("/login");
     }
 }

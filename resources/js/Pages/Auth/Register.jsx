@@ -44,7 +44,9 @@ export default function Register() {
                 </h1>
                 <h2 className='text-center'>Let's make your account.</h2>
                 <div className="mt-4 flex flex-row items-center">
+
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsPerson className='text-2xl text-disable' /></div>
+
                     <Input
                         type="text"
                         name="name"
@@ -58,7 +60,9 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
+
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsEnvelope className='text-2xl text-disable' /></div>
+
                     <Input
                         type="email"
                         name="email"
@@ -71,7 +75,9 @@ export default function Register() {
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
+
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
+
                     <Input
                         type="password"
                         name="password"
@@ -83,8 +89,9 @@ export default function Register() {
                         placeholder='Enter Password'
                     />
                 </div>
-                <div className="mt-4 flex flex-row items-center">
+
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
+
                     <Input
                         type="password"
                         name="password_confirmation"

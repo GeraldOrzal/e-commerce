@@ -29,9 +29,11 @@ export default function Product(props) {
                             Reset
                         </Button>
                     </div>
+
                     <div className='flex flex-row space-x-2 border-b-2'>
                         <div className='p-5 flex-1 text-center'>
                             All
+
                         </div>
                         <div className='p-5 flex-1 text-center'>
                             Published

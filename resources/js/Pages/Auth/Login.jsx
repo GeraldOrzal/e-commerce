@@ -46,7 +46,9 @@ export default function Login({ status, canResetPassword }) {
                 Sign in to continue
             </h1>    
                 <div className='flex flex-row items-center'>
+
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsPerson className='text-2xl text-disable'/></div>
+
                     <Input
                         type="text"
                         name="email"
@@ -60,7 +62,9 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="mt-4 flex flex-row items-center">
+
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable'/></div>
+
                     <Input
                         type="password"
                         name="password"

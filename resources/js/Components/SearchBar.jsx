@@ -74,6 +74,7 @@ export default function SearchBar(props) {
     return (
         <>
             {
+
                 props.auth.user?.usertypeid == 2 && <header className='w-full mx-auto flex flex-row items-center shadow'>
                     <Link href='/' className="w-20 h-20 ml-7">
                         <ApplicationLogo className='w-20 h-20' />
@@ -104,6 +105,7 @@ export default function SearchBar(props) {
                     sm:w-4/5 sm:px-0 
                     xs:w-full xs:px-2'>
                         <input ref={inputRef} type='text' className=' w-2/5 bg-black bg-opacity-10 pl-5 outline-0 rounded-bl-xl p-2 w-full
+
                     md:text-base
                     xs:text-sm' placeholder='Search shop / product name' onChange={onEnterText} />
                         <div className={`absolute top-full bg-primary p-5 w-full ${results.data ? 'block' : 'hidden'} flex flex-col z-10 shadow`} >
@@ -125,17 +127,21 @@ export default function SearchBar(props) {
                 md:text-xl 
                 xs:text-base'/>}</button>
                     </div>
+
                     <nav className='flex flex-row justify-center items-center space-x-4
                     sm:w-40 sm:mt-0
                     xs:w-full xs:mt-2'>
+
                         {
                             props.auth.user ? <>
                                 {props.auth.user.usertypeid != 2 && <>
                                     <Link href={route('cart')} className='ml-2'>
+
                                         <BsCart className='text-xl' />
                                     </Link>
                                     <Link href={route('shop', { page: 1 })} className={`underline ${route().current() == "shop" ? "font-bold" : ""}`}>
                                         <BsShopWindow className='text-xl' />
+
                                     </Link>
                                 </>
                                 }
@@ -144,10 +150,13 @@ export default function SearchBar(props) {
                                         <img className="w-7 h-7 rounded-full cursor-pointer" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
                                     </Dropdown.Trigger>
                                     <Dropdown.Content>
+
                                         <Dropdown.Link href={route('manage')} method="get">{props.auth.user.name}</Dropdown.Link>
+
                                         <Dropdown.Link href={route('logout')} method="post" as='button'>Log out</Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
+
 
                                 {props.auth.user.usertypeid == 2 && <>
                                     <FiBell />
@@ -155,6 +164,7 @@ export default function SearchBar(props) {
                                     </div>
                                     <Button>Back to Shop</Button>
                                 </>
+
 
                                 }
 

@@ -17,10 +17,10 @@ export default function CartProductRow(props) {
         
     
     return (
-    <div className='flex flex-row items-center w-full space-x-8 shadow py-4 px-6'>
+    <div className='flex flex-row items-center w-full space-x-8 shadow py-4 px-6 rounded-md'>
         <Checkbox handleChange={props.handleChange} price={props.price} value={props.id} name="product" ref={ref} required={props.req}/>
         <div className='w-20 h-15'>
-            <img src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80"  className='object-contain'/>
+            <img src={JSON.parse(props.images).image1}  className='object-contain'/>
         </div>
         <ul className='w-4/5'>
             <li>{props.productname}</li>

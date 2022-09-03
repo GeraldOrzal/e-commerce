@@ -1,7 +1,7 @@
 import Button from '@/Components/Button';
 import Authenticated from '@/Layouts/Authenticated';
 import React from 'react';
-import { Link,useForm} from '@inertiajs/inertia-react';
+import { Link, useForm } from '@inertiajs/inertia-react';
 import { BsCart3 } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
 import { MdArrowForwardIos } from 'react-icons/md';
@@ -9,16 +9,20 @@ export default function ViewProduct({ auth, errors, product }) {
 
 
   const { data, setData, post, processing, reset } = useForm({
-    'productid':product.productid,
-    'iswishlist':false
+    'productid': product?.productid,
+    'iswishlist': false
   });
 
 
   const submit = (e) => {
-    
+
     post(route('addcart'));
-    
+
   };
+  if (product) {
+    const productdetails = JSON.parse(product.productdetails);
+  }
+
   return (
     <Authenticated
       auth={auth}
@@ -51,14 +55,14 @@ export default function ViewProduct({ auth, errors, product }) {
         md:w-2/5 md:mt-0 md:pl-4
         sm:mt-0
         xs:w-full xs:mt-2 xs:pl-2'>
-          <h1 className='md:text-3xl sm:text-xl xs:text-lg'>{product.productname}</h1>
+          <h1 className='md:text-3xl sm:text-xl xs:text-lg'>{product?.productname}</h1>
           <label className='flex flex-row items-center md:text-sm xs:text-xs'>
             <AiFillStar />
             <AiFillStar />
             <AiFillStar className='mr-2' />
             3.0
           </label>
-          <label className='md:text-base xs:text-sm'>₱ {product.price}.00</label>
+          <label className='md:text-base xs:text-sm'>₱ {product?.price}.00</label>
           <label className='md:text-base xs:text-sm'>Select Size</label>
           <div className='flex flex-row items-center flex-wrap'>
             <div className='border border-disable text-disable shadow py-1 px-2 rounded-md mr-1 mb-1
@@ -87,19 +91,19 @@ export default function ViewProduct({ auth, errors, product }) {
             <div className='border bg-error border-disable shadow md:p-4 xs:p-3 rounded-md mr-1'></div>
           </div>
 
-<form
+          <form
 
-onSubmit={submit}
->
+            onSubmit={submit}
+          >
 
-          <Button 
-          type='submit'
-          
-          className='flex items-center w-fit 
+            <Button
+              type='submit'
+
+              className='flex items-center w-fit 
           md:text-sm 
           sm:self-start 
           xs:self-end xs:text-xs'>Add to cart <BsCart3 className='md:ml-2 xs:ml-1' /></Button>
-</form>
+          </form>
         </div>
       </div>
       <div className='max-w-7xl w-full mx-auto flex flex-row justify-center items-center p-2 mt-4 
@@ -112,6 +116,11 @@ onSubmit={submit}
       </div>
       <div className='max-w-7xl w-full mx-auto px-10'>
         <div className='border-b'></div>
+        <div className='p-5 grid grid-cols-3 gap-5'>
+          {
+            product && Object.keys(productdetails)?.map((data) => <label>{` ${data} : ${productdetails[data]}`}</label>)
+          }
+        </div>
       </div>
       {/* lagyan dito ng similar products tska featured products */}
     </Authenticated>
