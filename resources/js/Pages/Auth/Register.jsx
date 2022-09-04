@@ -101,7 +101,7 @@ export default function Register() {
                         required
                         placeholder='Confirm Password'
                     />
-                </div>
+                
                 <div className="flex items-center justify-between mt-4">
                     <Link href={route('login')} className="underline text-sm text-error font-bold">
                         Already registered?
