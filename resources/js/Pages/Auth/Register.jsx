@@ -89,7 +89,7 @@ export default function Register() {
                         placeholder='Enter Password'
                     />
                 </div>
-
+                <div  className="mt-4 flex flex-row items-center">
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
 
                     <Input
@@ -101,6 +101,7 @@ export default function Register() {
                         required
                         placeholder='Confirm Password'
                     />
+                </div>
                 
                 <div className="flex items-center justify-between mt-4">
                     <Link href={route('login')} className="underline text-sm text-error font-bold">
