@@ -37,7 +37,9 @@ export default function Welcome(props) {
                          md:w-1/2 md:mr-2 md:mb-0 
                          xs:w-4/5 xs:mr-0 xs:mb-2' src='/images/ads.png' />
                     </div>
-                    <div className='max-w-7xl mx-auto'>
+                   {props.featured.length!=0&&<>
+                   
+                   <div className='max-w-7xl mx-auto'>
                         <div className='flex items-center font-bold pl-2 mb-2
                         lg:text-lg
                         sm:text-base
@@ -53,7 +55,7 @@ export default function Welcome(props) {
                                 rating={rating}
                             />)
                         }
-                    </div>
+                    </div></>}
                     <div className='max-w-7xl mx-auto'>
                         <div className='flex items-center font-bold pl-2 mb-2
                           lg:text-lg

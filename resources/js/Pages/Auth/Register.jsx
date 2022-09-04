@@ -76,19 +76,6 @@ export default function Register() {
                 </div>
                 <div className="mt-4 flex flex-row items-center">
 
-                <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
-
-<Input
-    type="password"
-    name="password_confirmation"
-    value={data.password_confirmation}
-    className="mt-1 w-full"
-    handleChange={onHandleChange}
-    required
-    placeholder='Confirm Password'
-/>
-                </div>
-                <div  className="mt-4 flex flex-row items-center">
                     <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
 
                     <Input
@@ -101,7 +88,20 @@ export default function Register() {
                         placeholder='Confirm Password'
                     />
                 </div>
-                
+                <div className="mt-4 flex flex-row items-center">
+                    <div className='bg-black bg-opacity-10 p-2 rounded-tl-sm rounded-bl-sm'><BsLock className='text-2xl text-disable' /></div>
+
+                    <Input
+                        type="password"
+                        name="password_confirmation"
+                        value={data.password_confirmation}
+                        className="mt-1 w-full"
+                        handleChange={onHandleChange}
+                        required
+                        placeholder='Confirm Password'
+                    />
+                </div>
+
                 <div className="flex items-center justify-between mt-4">
                     <Link href={route('login')} className="underline text-sm text-error font-bold">
                         Already registered?
