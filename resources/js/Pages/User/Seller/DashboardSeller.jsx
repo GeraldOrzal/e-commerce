@@ -65,7 +65,7 @@ export default function Dashboard(props) {
                         </div>
 
 
-            >
+            </div>
                 <div className='container-fluid flex-1 flex-col p-5 space-y-5'>
                     Welcome Back!
                     <div className='flex flex-row items-center space-x-3'>
