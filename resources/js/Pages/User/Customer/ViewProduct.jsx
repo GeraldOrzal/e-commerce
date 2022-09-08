@@ -19,9 +19,12 @@ export default function ViewProduct({ auth, errors, product }) {
     post(route('addcart'));
 
   };
-  if (product) {
-    const productdetails = JSON.parse(product.productdetails);
-  }
+
+  
+ 
+  
+  const productdetails = product?JSON.parse(product?.productdetails):null;
+  const productimages = product?JSON.parse(product?.imagesname):null;
 
   return (
     <Authenticated
@@ -41,15 +44,21 @@ export default function ViewProduct({ auth, errors, product }) {
              xs:text-base">View Product</label>
         </div>}
     >
-      <div className='max-w-7xl mx-auto w-full h-auto flex
+    {
+      product?( 
+        <>
+         <div className='max-w-7xl mx-auto w-full h-auto flex
       sm:flex-row xs:flex-col md:px-10 sm:px-2 xs:px-1'>
         <div className='md:h-96 md:w-3/5 xs:h-64 xs:w-full grid grid-cols-5 grid-rows-5 gap-2 mr-2'>
-          <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-1 row-end-2'></div>
+          {
+            Object.keys(productimages).slice(1).map((data,index)=><img src={productimages[data]} className={`shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-${index+1} row-end-2`}/>)
+          }
+          {/* <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-1 row-end-2'></div>
           <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-2 row-end-3'></div>
           <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-3 row-end-4'></div>
           <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-4 row-end-5'></div>
-          <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-5 row-end-6'></div>
-          <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-2 col-end-6 row-start-1 row-end-6'></div>
+          <div className='shadow-lg bg-sample bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-1 col-end-2 row-start-5 row-end-6'></div> */}
+          <img src={JSON.parse(product.imagesname).image1} className='shadow-lg  bg-no-repeat bg-cover bg-center rounded-md w-full h-full col-start-2 col-end-6 row-start-1 row-end-6'/>
         </div>
         <div className='flex flex-col md:space-y-2 xs:space-y-1 
         md:w-2/5 md:mt-0 md:pl-4
@@ -117,12 +126,12 @@ export default function ViewProduct({ auth, errors, product }) {
       <div className='max-w-7xl w-full mx-auto px-10'>
         <div className='border-b'></div>
         <div className='p-5 grid grid-cols-3 gap-5'>
-          {
-            product && Object.keys(productdetails)?.map((data) => <label>{` ${data} : ${productdetails[data]}`}</label>)
-          }
+        {Object.keys(productdetails)?.map((data) => <label>{` ${data} : ${productdetails[data]}`}</label>)}
         </div>
       </div>
-      {/* lagyan dito ng similar products tska featured products */}
+      </>
+     ):<>No product available</>
+    }
     </Authenticated>
   )
 }

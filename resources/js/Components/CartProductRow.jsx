@@ -26,12 +26,15 @@ export default function CartProductRow(props) {
             <li>{props.productname}</li>
             {props.brand & <li>{props.brand}</li>}
             <li>{props.price}</li>
-            <li>{`Order Placed on: ${props.date}`}</li>
-            <li>{`Ship To: ${props.address}`}</li>
+            {props.date&&<li>{`Order Placed on: ${props.date}`}</li>}
+            {props.address&&<li>{`Ship To: ${props.address}`}</li>}
         </ul>
-        <div >
-            <h2 className='text-sm'>{`Order Number: ${props.ordernumber}`}</h2>
-            <Link className="font-bold text-sm" >View Order Details</Link>
+        <div className={`${!props.ordernumber&&'w-60'}`}>
+            {
+                props.ordernumber&&<>
+                <h2 className='text-sm'>{`Order Number: ${props.ordernumber}`}</h2>
+            <Link className="font-bold text-sm" >View Order Details</Link></>
+            }
         </div>
     </div>);
 }

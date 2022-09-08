@@ -308,7 +308,7 @@ export default function Shop(props) {
           />):
           <>
             <object data="/svgs/Frame.svg" type="image/svg+xml" className='h-72'></object>
-            <label>No item found</label>
+            <label>No items found</label>
           </>
         }
         
