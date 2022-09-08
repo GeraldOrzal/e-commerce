@@ -27,12 +27,12 @@ module.exports = {
         },
         extend: {
             backgroundImage:{
-                category0:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/public/images/clothes.jpg")',
-                category1:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/public/images/furnitures.jpeg")',
-                category2:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/public/images/foods.jpg")',
-                category3:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/public/images/technology.webp")',
-                category4:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/public/images/hygiene.jpeg")',
-                category5:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/public/images/medicines.webp")',
+                category0:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/images/clothes.jpg")',
+                category1:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/images/furnitures.jpeg")',
+                category2:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/images/foods.jpg")',
+                category3:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/images/technology.webp")',
+                category4:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/images/hygiene.jpeg")',
+                category5:'url("https://sadsadasdasdasddsfdsf.herokuapp.com/images/medicines.webp")',
                 sample:'url("https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80")',
                 ads:'url("./public/images/ads.png")',
                 f21:'url("./public/images/forever-21.png")',
