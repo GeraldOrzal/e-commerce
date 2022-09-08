@@ -65,52 +65,52 @@ export default function Welcome(props) {
                     <div className='max-w-7xl mx-auto grid grid-cols-6 auto-rows-max gap-2 mb-10
                     grid-rows-2
                     'onMouseEnter={() => sethoverCategory(true)} onMouseLeave={() => sethoverCategory(false)}>
-                        <div className='shadow bg-category0 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={`shadow ${props.categories[0].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
                         md:p-20 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3
-                        xs:p-14 xs:col-start-1 xs:col-end-4 xs:row-start-1 xs:row-end-2'>
+                        xs:p-14 xs:col-start-1 xs:col-end-4 xs:row-start-1 xs:row-end-2`}>
                             <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block xl:text-5xl md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[0].description}
                             </div>
                         </div>
-                        <div className='shadow bg-category1 bg-no-repeat bg-cover bg-center rounded-md relative 
+                        <div className={`shadow ${props.categories[1].imagename} bg-no-repeat bg-cover bg-center rounded-md relative 
                         md:p-20 md:col-start-3 md:col-end-5
-                        xs:p-14 xs:col-start-4 xs:col-end-7'>
+                        xs:p-14 xs:col-start-4 xs:col-end-7`}>
                             <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[1].description}
                             </div>
 
                         </div>
-                        <div className='shadow bg-category2 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={`shadow ${props.categories[2].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-5 xl:col-end-7
                         md:p-20 md:col-start-5 md:col-end-7
-                        xs:p-14 xs:col-start-1 xs:col-end-4'>
+                        xs:p-14 xs:col-start-1 xs:col-end-4`}>
                             <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[2].description}
                             </div>
 
                         </div>
-                        <div className='shadow bg-category3 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={`shadow ${props.categories[3].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-3 xl:col-end-5
                         md:p-20 md:col-start-3 md:col-end-7
-                        xs:p-14 xs:col-start-4 xs:col-end-7'>
+                        xs:p-14 xs:col-start-4 xs:col-end-7`}>
                             <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[3].description}
                             </div>
 
                         </div>
-                        <div className='shadow bg-category4 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={`shadow ${props.categories[4].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-5 xl:col-end-6
                         md:p-20
-                        xs:p-14 xs:col-start-1 xs:col-end-4'>
+                        xs:p-14 xs:col-start-1 xs:col-end-4`}>
                             <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block lg:text-2xl md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[4].description}
                             </div>
 
                         </div>
-                        <div className='shadow bg-category5 bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={`shadow ${props.categories[5].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-6 xl:col-end-7
                         md:p-20
-                        xs:p-14 xs:col-start-4 xs:col-end-7'>
+                        xs:p-14 xs:col-start-4 xs:col-end-7`}>
                             <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block lg:text-2xl md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[5].description}
                             </div>
