@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import ProductCard from '@/Components/ProductCard';
 import { MdFeaturedPlayList, MdCategory } from 'react-icons/md';
-import { Link, Head } from '@inertiajs/inertia-react';
+import { Head } from '@inertiajs/inertia-react';
 import SearchBar from '@/Components/SearchBar';
-import Authenticated from '@/Layouts/Authenticated';
-import ads from '@/images/ads.png';
 import Button from '@/Components/Button';
 import Footer from '@/Components/Footer';
 
