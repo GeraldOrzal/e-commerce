@@ -70,7 +70,7 @@ export default function Welcome(props) {
                                 {props.categories[0].description}
                             </div>
                         </div>
-                        <div className={`shadow ${props.categories[1].imagename} bg-no-repeat bg-cover bg-center rounded-md relative 
+                        <div className={props.categories[1].imagename + `shadow bg-no-repeat bg-cover bg-center rounded-md relative 
                         md:p-20 md:col-start-3 md:col-end-5
                         xs:p-14 xs:col-start-4 xs:col-end-7`}>
                             <div className={hoverCategory ? 'flex justify-center rounded-md items-center bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
@@ -78,7 +78,7 @@ export default function Welcome(props) {
                             </div>
 
                         </div>
-                        <div className={`shadow ${props.categories[2].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={ props.categories[2].imagename + `shadow bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-5 xl:col-end-7
                         md:p-20 md:col-start-5 md:col-end-7
                         xs:p-14 xs:col-start-1 xs:col-end-4`}>
@@ -87,7 +87,7 @@ export default function Welcome(props) {
                             </div>
 
                         </div>
-                        <div className={`shadow ${props.categories[3].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={props.categories[3].imagename + `shadow  bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-3 xl:col-end-5
                         md:p-20 md:col-start-3 md:col-end-7
                         xs:p-14 xs:col-start-4 xs:col-end-7`}>
@@ -96,7 +96,7 @@ export default function Welcome(props) {
                             </div>
 
                         </div>
-                        <div className={`shadow ${props.categories[4].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
+                        <div className={props.categories[4].imagename + `shadow bg-no-repeat bg-cover bg-center rounded-md relative
                         xl:col-start-5 xl:col-end-6
                         md:p-20
                         xs:p-14 xs:col-start-1 xs:col-end-4`}>
@@ -105,10 +105,7 @@ export default function Welcome(props) {
                             </div>
 
                         </div>
-                        <div className={`shadow ${props.categories[5].imagename} bg-no-repeat bg-cover bg-center rounded-md relative
-                        xl:col-start-6 xl:col-end-7
-                        md:p-20
-                        xs:p-14 xs:col-start-4 xs:col-end-7`}>
+                        <div className={props.categories[5].imagename +`shadow bg-no-repeat bg-cover bg-center rounded-md relative xl:col-start-6 xl:col-end-7 md:p-20 xs:p-14 xs:col-start-4 xs:col-end-7`}>
                             <div className={hoverCategory ? 'flex justify-center items-center rounded-md bg-black_trans font-bold text-primary absolute top-0 left-0 w-full h-full block lg:text-2xl md:text-3xl sm:text-2xl xs:text-xl' : 'hidden'}>
                                 {props.categories[5].description}
                             </div>
