@@ -27,15 +27,15 @@ module.exports = {
         },
         extend: {
             backgroundImage:{
-                category0:'url("/public/images/clothes.jpg")',
-                category1:'url("/public/images/furnitures.jpeg")',
-                category2:'url("/public/images/foods.jpg")',
-                category3:'url("/public/images/technology.webp")',
-                category4:'url("/public/images/hygiene.jpeg")',
-                category5:'url("/public/images/medicines.webp")',
+                category0:'url("/images/clothes.jpg")',
+                category1:'url("/images/furnitures.jpeg")',
+                category2:'url("/images/foods.jpg")',
+                category3:'url("/images/technology.webp")',
+                category4:'url("/images/hygiene.jpeg")',
+                category5:'url("/images/medicines.webp")',
                 sample:'url("https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80")',
-                ads:'url("/public/images/ads.png")',
-                f21:'url("/public/images/forever-21.png")',
+                ads:'url("./public/images/ads.png")',
+                f21:'url("/images/forever-21.png")',
             },
             fontFamily: {
                 sans: ['Libre Baskerville',  ...defaultTheme.fontFamily.sans],

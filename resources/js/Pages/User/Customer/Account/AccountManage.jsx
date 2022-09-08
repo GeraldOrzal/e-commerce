@@ -1,10 +1,8 @@
 import AccountNav from '@/Layouts/AccountNav'
 import Authenticated from '@/Layouts/Authenticated'
-import React,{useState} from 'react'
+import React from 'react'
 import Input from '@/Components/Input'
-import logo from '@/images/logo.png'
 import Button from '@/Components/Button'
-import { Link, useForm } from '@inertiajs/inertia-react'
 
 export default function AccountManage(props) {
 
