@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from '@inertiajs/inertia-react';
-import logo from '@/images/logo.png'
+
 export default function AccountNav(props) {
   return (
     <div className='flex flex-row'>
