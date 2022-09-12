@@ -11,17 +11,17 @@ export default function AccountNav(props) {
             <h2>{props.Username}</h2>
           </div>
           <ul className='text-xl ml-2 mt-5 space-y-1' >
-            <li className='flex space-x-2'><img className='w-5 h-5' /><Link className='cursor-default'>My Account</Link></li>
+            <li className='flex space-x-2'><img src='/images/navlogo/user.png' className='w-5 h-5' /><Link className='cursor-default'>My Account</Link></li>
             <ul className=' ml-10 space-y-1'>
               <li><Link href={route('manage')} className='hover:underline hover:text-[#0B237A]'>Profile</Link></li>
               <li><Link href={route('delivery')} className='hover:underline hover:text-[#0B237A]'>Delivery Address</Link></li>
               <li><Link href={route('payment')} className='hover:underline hover:text-[#0B237A]'>Payment Options</Link></li>
               <li><Link href={route('passwordchange')} className='hover:underline hover:text-[#0B237A]'>Change Password</Link></li>
             </ul>
-            <li className='flex space-x-2'><img className='w-5 h-5' /><Link href={route('purchases')} className='hover:underline hover:text-[#0B237A]'>My Purchases</Link></li>
-            <li className='flex space-x-2'><img className='w-5 h-5' /><Link className='hover:underline hover:text-[#0B237A]'>Offers</Link></li>
-            <li className='flex space-x-2'><img className='w-5 h-5' /><Link href={route('wishlist')} className='hover:underline hover:text-[#0B237A]'>Wishlists</Link></li>
-            <li className='flex space-x-2'><img className='w-5 h-5' /><Link className='hover:underline hover:text-[#0B237A]'>Start Business</Link></li>
+            <li className='flex space-x-2'><img src='/images/navlogo/label.png'className='w-5 h-5'  /><Link href={route('purchases')} className='hover:underline hover:text-[#0B237A]'>My Purchases</Link></li>
+            <li className='flex space-x-2'><img src='/images/navlogo/label.png' className='w-5 h-5' /><Link className='hover:underline hover:text-[#0B237A]'>Offers</Link></li>
+            <li className='flex space-x-2'><img src='/images/navlogo/coupon.png' className='w-5 h-5' /><Link href={route('wishlist')} className='hover:underline hover:text-[#0B237A]'>Wishlists</Link></li>
+            <li className='flex space-x-2'><img src='/images/navlogo/shop.png' className='w-5 h-5' /><Link className='hover:underline hover:text-[#0B237A]'>Start Business</Link></li>
           </ul>
         </div>
       </div>  
