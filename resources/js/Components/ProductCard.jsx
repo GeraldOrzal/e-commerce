@@ -13,10 +13,10 @@ export default function ProductCard(props, product) {
   return (
     <div className='flex flex-col hover:scale-105 transition'>
       <Link href={route('viewproduct', { id: props.productid })}>
-        <img className='rounded-tr-md rounded-tl-md
+        {props.images&&<img className='rounded-tr-md rounded-tl-md
         lg:h-48 lg:w-60 
         md:h-36 md:w-44 
-        xs:h-28 xs:w-32' src={JSON.parse(props.images).image1} />
+        xs:h-28 xs:w-32' src={JSON.parse(props.images).image1} />}
         <div className='bg-primary rounded-br-md rounded-bl-md shadow-lg z-10 p-2 space-y-2
         lg:w-60 
         md:w-44 
