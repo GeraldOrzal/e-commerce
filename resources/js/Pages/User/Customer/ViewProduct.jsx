@@ -1,11 +1,12 @@
 import Button from '@/Components/Button';
 import Authenticated from '@/Layouts/Authenticated';
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Link, useForm } from '@inertiajs/inertia-react';
 import { BsCart3 } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
 import { MdArrowForwardIos } from 'react-icons/md';
-export default function ViewProduct({ auth, errors, product }) {
+import Confirmation from '@/Components/Confirmation';
+export default function ViewProduct({ auth, errors, product ,message}) {
 
 
   const { data, setData, post, processing, reset } = useForm({
@@ -44,6 +45,7 @@ export default function ViewProduct({ auth, errors, product }) {
              xs:text-base">View Product</label>
         </div>}
     >
+      {message.message&&<Confirmation message={message}/>}
     {
       product?( 
         <>

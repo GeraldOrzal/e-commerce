@@ -5,6 +5,7 @@ import Checkbox from '@/Components/Checkbox'
 import Authenticated from '@/Layouts/Authenticated'
 import React, { useState, useRef, useEffect } from 'react'
 import { Link, useForm } from '@inertiajs/inertia-react'
+import Confirmation from '@/Components/Confirmation';
 // import Web3 from 'web3';
 import json from '../../../../../build/contracts/ProductPayment.json';
 // import TruffleContract from '@truffle/contract'
@@ -134,6 +135,7 @@ export default function Cart(props) {
       auth={props.auth}
       errors={props.errors}
     >
+      {props.message.message&&<Confirmation message={props.message}/>}
       <form
         onSubmit={submit}
         className='flex flex-col items-center w-full mx-auto'

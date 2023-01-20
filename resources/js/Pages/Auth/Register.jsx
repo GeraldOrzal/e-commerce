@@ -80,12 +80,12 @@ export default function Register() {
 
                     <Input
                         type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
+                        name="password"
+                        value={data.password}
                         className="mt-1 w-full"
                         handleChange={onHandleChange}
                         required
-                        placeholder='Confirm Password'
+                        placeholder='Password'
                     />
                 </div>
                 <div className="mt-4 flex flex-row items-center">
